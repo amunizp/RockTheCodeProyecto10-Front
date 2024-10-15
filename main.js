@@ -1,24 +1,41 @@
+// Importa el archivo de estilos CSS.
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Importa comments
+import Comments from './pages/Comments'
 
-setupCounter(document.querySelector('#counter'))
+// Importa el módulo 'Login' desde el archivo "./pages/Login".
+import Login from './pages/Login'
+
+// Importa el módulo 'Register' desde el archivo "./pages/Register".
+import Register from './pages/Register'
+
+// Importa el módulo 'Favs' desde el archivo "./pages/Favs".
+import Mine from './pages/Mine'
+
+// Añade un controlador de eventos para el clic en el elemento con id "bookslink", que llama a la función Books().
+document
+  .querySelector('#commentslink')
+  .addEventListener('click', () => Comments())
+
+// Añade un controlador de eventos para el clic en el elemento con id "loginlink", que llama a la función Login().
+document.querySelector('#loginlink').addEventListener('click', () => Login())
+
+// Añade un controlador de eventos para el clic en el elemento con id "registerlink", que llama a la función Register().
+document
+  .querySelector('#registerlink')
+  .addEventListener('click', () => Register())
+
+// Añade un controlador de eventos para el clic en el elemento con id "favslink", que llama a la función Favs().
+document.querySelector('#minelink').addEventListener('click', () => Mine())
+
+// Añade un controlador de eventos para el clic en el elemento con id "logoutlink", que elimina el usuario del almacenamiento local,
+// muestra un mensaje de despedida y llama a la función Login().
+document.querySelector('#logoutlink').addEventListener('click', () => {
+  localStorage.removeItem('person')
+  alert('See you soon!')
+  Login()
+})
+
+// Llama directamente a la función Login() para cargar el formulario.
+Login()
