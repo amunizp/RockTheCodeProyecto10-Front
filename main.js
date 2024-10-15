@@ -10,10 +10,10 @@ import Login from './pages/Login'
 // Importa el módulo 'Register' desde el archivo "./pages/Register".
 import Register from './pages/Register'
 
-// Importa el módulo 'Favs' desde el archivo "./pages/Favs".
+// Importa el módulo Mine que son los comments que yo hice
 import Mine from './pages/Mine'
 
-// Añade un controlador de eventos para el clic en el elemento con id "bookslink", que llama a la función Books().
+// Añade un controlador de eventos para el clic en el elemento para llamar a Comments
 document
   .querySelector('#commentslink')
   .addEventListener('click', () => Comments())
@@ -33,9 +33,10 @@ document.querySelector('#minelink').addEventListener('click', () => Mine())
 // muestra un mensaje de despedida y llama a la función Login().
 document.querySelector('#logoutlink').addEventListener('click', () => {
   localStorage.removeItem('person')
+  console.log('logging out')
   alert('See you soon!')
   Login()
 })
-
+console.log('called login from Main')
 // Llama directamente a la función Login() para cargar el formulario.
 Login()
