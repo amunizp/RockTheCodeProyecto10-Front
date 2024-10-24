@@ -13,11 +13,12 @@ import Register from './pages/Register'
 // Importa el módulo Mine que son los comments que yo hice
 import Mine from './pages/Mine'
 
+console.log('hola escribe algo!')
 // Añade un controlador de eventos para el clic en el elemento para llamar a Comments
 document
   .querySelector('#commentslink')
   .addEventListener('click', () => Comments())
-
+console.log('Event Listener done.')
 // Añade un controlador de eventos para el clic en el elemento con id "loginlink", que llama a la función Login().
 document.querySelector('#loginlink').addEventListener('click', () => Login())
 
