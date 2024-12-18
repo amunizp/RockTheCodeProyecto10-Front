@@ -1,0 +1,13 @@
+.main-button {
+  background-color: var(--rtc-color-5);
+  border-radius: var(--rtc-third-br);
+  padding: var(--rtc-padding-xxs) var(--rtc-padding-xs);
+  font-size: var(--rtc-font-size-m);
+  color: var(--rtc-color-1);
+  border-width: 2px;
+  border-color: var(--rtc-color-4);
+}
+
+.button-toggle {
+  border-color: var(--rtc-color-5);
+}

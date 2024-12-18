@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rtc-gap-s);
+  padding: var(--rtc-padding-s);
+}
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rtc-gap-s);
+  padding: var(--rtc-padding-s);
+}

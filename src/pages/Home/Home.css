@@ -1,0 +1,10 @@
+#home {
+  min-height: 90svh;
+  background-color: var(--rtc-bg-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home h2 {
+  color: var(--rtc-color-text);
+}

@@ -4,7 +4,7 @@ const template = () => `
     ${
       localStorage.getItem('user')
         ? `
-        <h3>Welcome User</h3>`
+        <h3>Welcome Neighbour</h3>`
         : `<h3>Please, log in</h3>`
     }
     <ul id="commentscontainer">
@@ -12,7 +12,7 @@ const template = () => `
   </section>
 `
 
-const Comments = () => {
+const getComments = async () => {
   console.log('Got comments')
 }
 

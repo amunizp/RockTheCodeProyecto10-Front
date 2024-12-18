@@ -1,0 +1,6 @@
+.register-form {
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--rtc-color-border-primary);
+  border-radius: var(--rtc-xlarge-br);
+}
