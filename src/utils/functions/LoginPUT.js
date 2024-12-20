@@ -17,6 +17,7 @@ export const loginPUT = async (e) => {
     method: 'POST',
     body
   })
+  // localStorage.removeItem('token')
   localStorage.setItem('token', JSON.stringify(data.token))
   localStorage.setItem('person', JSON.stringify(data.person)) //this is not storing
   const personNameStorage = JSON.parse(

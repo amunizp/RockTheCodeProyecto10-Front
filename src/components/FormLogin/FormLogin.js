@@ -16,7 +16,6 @@ export const FormLogin = (form) => {
       text: labelText,
       fnc: () => {
         console.log('Submitted login')
-        form.addEventListener('submit', loginPUT)
       }
     })
   )

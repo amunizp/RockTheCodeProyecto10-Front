@@ -12,7 +12,7 @@ export const Login = () => {
   const div = createPage('login')
 
   const form = document.createElement('form')
-
+  form.addEventListener('submit', loginPUT)
   div.append(
     BasicButton({
       text: 'You do not have an account?',
