@@ -1,0 +1,28 @@
+.comment {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rtc-gap-s);
+  padding: var(--rtc-padding-s);
+  width: 300px;
+}
+.comment img {
+  max-width: 100%;
+  border-radius: var(--rtc-xlarge-br);
+
+  object-fit: contain;
+}
+ul.comment figure figcaption {
+  color: black;
+}
+ul.comment li {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rtc-gap-s);
+  padding: var(--rtc-padding-s);
+}

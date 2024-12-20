@@ -1,4 +1,4 @@
-import { commentsArticle } from '../../components/Comments/Comments'
+import { commentsList } from '../../components/Comments/Comments'
 import { allCommentsGET } from '../../utils/functions/allCommentsGET'
 import { createPage } from '../../utils/functions/createPage'
 import './Home.css'
@@ -8,7 +8,7 @@ export const Home = async () => {
   div.innerHTML = `<h2>Welcome Home</h2>`
 
   const arrayOfComments = await allCommentsGET()
-  const section = commentsArticle(arrayOfComments)
+  const section = commentsList(arrayOfComments)
   div.append(section)
   // const comments = await API({ endpoint: 'comments' })
   //console.log('the array of comments', arrayOfComments)

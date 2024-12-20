@@ -1,18 +1,23 @@
 // Define una arrow function llamada `template` que devuelve un template string.
+import './Comments.css'
 
-export const commentsArticle = (arrayOfComments) => {
-  const section = document.createElement('section')
+export const commentsList = (arrayOfComments) => {
+  const ul = document.createElement('ul')
   if (Array.isArray(arrayOfComments) || !arrayOfComments.length) {
     for (const comment of arrayOfComments) {
-      section.innerHTML += `
-    <article>
-        <figure> <img src="${comment.img}"/></figure>
-    <p>${comment.description}</p>
-  </article>
+      ul.innerHTML += `
+    <li class="comment">
+        <figure> 
+        <img src="${comment.img}"/>
+        <figcaption>
+        ${comment.description}
+        </figcaption>
+        </figure>
+  </li>
   `
     }
   } else {
-    section.innerHTML = `<article><p>No comments here</p></article>`
+    ul.innerHTML = `<li><p>No comments here</p></li>`
   }
-  return section
+  return ul
 }
