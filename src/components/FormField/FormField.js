@@ -7,10 +7,11 @@ export const FormField = ({ labelText, type = 'text', required = true }) => {
   </label>
   <input class="form-field" type="${type}" id="${labelText}" name="${labelText}" autocomplete="${
     type === 'password' ? 'current-password' : 'name'
-  }" required=${required} placeholder="${type}" pattern="${
-    type === 'password' ? '.*.{8,}' : '.*'
-  } "  title= ${type === 'password' ? 'It must be at least 8 characters' : ''}/>
-  
+  }" required=${required} placeholder="${type}" ${
+    type === 'password' ? 'pattern = ".*.{8,}"' : ''
+  } "  title= "${
+    type === 'password' ? 'It must be at least 8 characters' : ''
+  }"/>
   `
 }
 

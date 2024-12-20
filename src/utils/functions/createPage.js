@@ -1,8 +1,8 @@
 export const createPage = (id) => {
   const main = document.querySelector('main')
-  const div = document.createElement('div')
+  const article = document.createElement('article')
   main.innerHTML = ''
-  div.id = id
-  main.append(div)
-  return div
+  article.id = id
+  main.append(article)
+  return article
 }

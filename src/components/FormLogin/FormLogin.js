@@ -1,3 +1,4 @@
+import { loginPUT } from '../../utils/functions/LoginPUT'
 import { BasicButton } from '../Buttons/BasicButton'
 import { FormField } from '../FormField/FormField'
 import './FormLogin.css'
@@ -15,6 +16,7 @@ export const FormLogin = (form) => {
       text: labelText,
       fnc: () => {
         console.log('Submitted login')
+        form.addEventListener('submit', loginPUT)
       }
     })
   )
