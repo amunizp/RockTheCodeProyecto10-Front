@@ -1,19 +1,18 @@
 // Define una arrow function llamada `template` que devuelve un template string.
-const template = () => `
-  <section id="comments">
-    ${
-      localStorage.getItem('user')
-        ? `
-        <h3>Welcome Neighbour</h3>`
-        : `<h3>Please, log in</h3>`
+
+export const commentsArticle = (arrayOfComments) => {
+  const section = document.createElement('section')
+  if (Array.isArray(arrayOfComments) || !arrayOfComments.length) {
+    for (const comment of arrayOfComments) {
+      section.innerHTML += `
+    <article>
+        <figure> <img src="${comment.img}"/></figure>
+    <p>${comment.description}</p>
+  </article>
+  `
     }
-    <ul id="commentscontainer">
-    </ul>
-  </section>
-`
-
-const getComments = async () => {
-  console.log('Got comments')
+  } else {
+    section.innerHTML = `<article><p>No comments here</p></article>`
+  }
+  return section
 }
-
-export default Comments

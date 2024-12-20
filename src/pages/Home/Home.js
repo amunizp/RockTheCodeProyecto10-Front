@@ -1,3 +1,4 @@
+import { commentsArticle } from '../../components/Comments/Comments'
 import { allCommentsGET } from '../../utils/functions/allCommentsGET'
 import { createPage } from '../../utils/functions/createPage'
 import './Home.css'
@@ -5,20 +6,12 @@ export const Home = async () => {
   console.log('Got to my home site')
   const div = createPage('home')
   div.innerHTML = `<h2>Welcome Home</h2>`
-  const section = document.createElement('section')
-  const arrayOfComments = await allCommentsGET()
-  // const comments = await API({ endpoint: 'comments' })
-  console.log('the array of comments', arrayOfComments)
 
-  for (const comment of arrayOfComments) {
-    section.innerHTML += `
-    <article>
-        <figure> <img src="${comment.img}"/></figure>
-    <p>${comment.description}</p>
-  </article>
-  `
-  }
+  const arrayOfComments = await allCommentsGET()
+  const section = commentsArticle(arrayOfComments)
   div.append(section)
+  // const comments = await API({ endpoint: 'comments' })
+  //console.log('the array of comments', arrayOfComments)
 }
 
 // "img": [],
