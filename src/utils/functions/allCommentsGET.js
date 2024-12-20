@@ -16,5 +16,6 @@ export const allCommentsGET = async () => {
       Authorization: `Bearer ${token}`
     }
   })
-  console.log('this should have all the comments', data)
+
+  return data
 }

@@ -6,16 +6,19 @@ export const Home = async () => {
   const div = createPage('home')
   div.innerHTML = `<h2>Welcome Home</h2>`
   const section = document.createElement('section')
-  allCommentsGET()
+  const arrayOfComments = await allCommentsGET()
   // const comments = await API({ endpoint: 'comments' })
-  // for (const comment of comments) {
-  //   section.innerHTML += `
-  //   <article>
-  //       <figure> <img src="${comment.img}"/></figure>
-  //   <p>${comment.description}</p>
-  // </article>
-  // `
-  // }
+  console.log('the array of comments', arrayOfComments)
+
+  for (const comment of arrayOfComments) {
+    section.innerHTML += `
+    <article>
+        <figure> <img src="${comment.img}"/></figure>
+    <p>${comment.description}</p>
+  </article>
+  `
+  }
+  div.append(section)
 }
 
 // "img": [],
