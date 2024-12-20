@@ -1,6 +1,6 @@
-import { CreateComment } from '../../../pages/CreateComment/CreateComment'
-import Mine from '../../../pages/Home/Home'
-import { Login } from '../../../pages/Login/Login'
+import { CreateComment } from '../../pages/CreateComment/CreateComment'
+import { Home } from '../../pages/Home/Home'
+import { Login } from '../../pages/Login/Login'
 
 export const routes = [
   {
@@ -12,7 +12,7 @@ export const routes = [
   {
     path: '/Home',
     text: 'Home',
-    page: Mine
+    page: Home
   },
   {
     path: '/createComment',

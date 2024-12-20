@@ -9,7 +9,7 @@ export const FormField = ({ labelText, type = 'text', required = true }) => {
     type === 'password' ? 'current-password' : 'name'
   }" required=${required} placeholder="${type}" pattern="${
     type === 'password' ? '.*.{8,}' : '.*'
-  }" />
+  } "  title= ${type === 'password' ? 'It must be at least 8 characters' : ''}/>
   
   `
 }

@@ -10,6 +10,7 @@ let showRegister = false
 export const Login = () => {
   console.log('Got to log in page')
   const div = createPage('login')
+
   const form = document.createElement('form')
 
   div.append(
@@ -33,7 +34,7 @@ export const Login = () => {
       className: 'button-toggle'
     })
   )
-
+  // localStorage.getItem('person') ? div.createElement('h2') :
   div.append(form)
   FormLogin(form)
 

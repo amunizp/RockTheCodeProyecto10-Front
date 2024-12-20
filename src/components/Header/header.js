@@ -1,4 +1,4 @@
-import { routes } from '../../utils/API/routes/routes'
+import { routes } from '../../utils/routes/routes'
 import { navigate } from '../../utils/functions/navigate'
 import './header.css'
 export const Header = () => {
