@@ -91,3 +91,7 @@
   font-style: normal;
   /* background-color: var(--rtc-bg-primary); */
 }
+p {
+    /* overflow-wrap: break-word; */
+   text-align: center;
+   }

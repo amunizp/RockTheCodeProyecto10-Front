@@ -6,15 +6,18 @@
   justify-content: center;
   gap: var(--rtc-gap-s);
   padding: var(--rtc-padding-s);
-  width: 300px;
+  /* width: 90svh; */
 }
 .comment img {
-  max-width: 100%;
+  gap: var(--rtc-gap-s);
+  /* margin: var(--rtc-padding-s); */
+  max-width: 20%;
   border-radius: var(--rtc-xlarge-br);
-
   object-fit: contain;
 }
-ul.comment figure figcaption {
+/* ul.comment figure {
+} */
+figcaption {
   color: black;
 }
 ul.comment li {
