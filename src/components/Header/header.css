@@ -1,6 +1,6 @@
 header {
   /* padding: var(--rtc-padding-m); */
-  background-image: url('../../../assets/images/Tiles.png');
+  background-image: url('/public/assets/static/Tiles.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
