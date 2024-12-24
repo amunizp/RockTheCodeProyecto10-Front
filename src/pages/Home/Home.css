@@ -1,10 +1,11 @@
 #home {
   min-height: 90svh;
-  background-color: var(--rtc-bg-primary);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 #home h2 {
   color: var(--rtc-color-text);

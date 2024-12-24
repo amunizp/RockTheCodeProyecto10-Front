@@ -9,6 +9,8 @@ export const Home = async () => {
   div.innerHTML = `<h2>Welcome Home</h2>`
   Loading(div)
   const arrayOfComments = await allCommentsGET()
+  // const parentSection = document.createElement('section')
+
   const section = commentsList(arrayOfComments)
   div.append(section)
   document.getElementById('loader').remove()

@@ -1,14 +1,87 @@
-.comment {
-  background-color: aqua;
+section.ParentCommentsCointainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--rtc-gap-s);
-  padding: var(--rtc-padding-s);
-  /* width: 90svh; */
+  min-width: var(--rtc-phone-width);
+  max-width: var(--rtc-tablet-width);
+  width: 100%;
 }
-.comment img {
+
+ul.commentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+  gap: var(--rtc-gap-s);
+}
+
+li.comment {
+  /* background-color: aqua; */
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: var(--rtc-gap-s); */
+  padding-right: var(--rtc-padding-s);
+  padding-left: var(--rtc-padding-s);
+  border-radius: 0;
+  max-width: var(--rtc-phone-width);
+  /* width: 100%; */
+  border-top-style: solid;
+  border-top-width: var(--rtc-border-large);
+  border-top-color: var(--rtc-bg-header);
+  border-bottom-style: solid;
+  border-bottom-width: var(--rtc-border-large);
+  border-bottom-color: var(--rtc-color-footer);
+}
+div.comment-box {
+  border: var(--rtc-border-medium) solid var(--rtc-color-border-comment);
+  padding: var(--rtc-padding-xs);
+  max-width: var(--rtc-phone-width);
+  width: 100%;
+  background-color: var(--rtc-bg-primary);
+  /* align-items: center; */
+}
+div.comment-box:has(> div.small-boxes) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* padding: var(--rtc-padding-s); */
+}
+figure {
+  border: var(--rtc-border-medium) solid var(--rtc-color-border-comment);
+  padding: var(--rtc-padding-xs);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  background-color: var(--rtc-bg-primary);
+}
+
+div.small-boxes {
+  align-items: center;
+  padding: 0;
+}
+p.who {
+  text-align: right;
+  font-size: x-small;
+}
+p.type-comment {
+  text-align: left;
+  font-size: x-small;
+}
+p.resolved {
+  text-align: center;
+  font-size: x-small;
+}
+
+li.comment img {
   gap: var(--rtc-gap-s);
   /* margin: var(--rtc-padding-s); */
   max-width: 20%;

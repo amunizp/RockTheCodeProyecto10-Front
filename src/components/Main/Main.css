@@ -1,4 +1,5 @@
 main {
   min-height: 90svh;
   background-color: var(--rtc-bg-primary);
+  width: 100%;
 }

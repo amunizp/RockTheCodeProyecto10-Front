@@ -2,7 +2,11 @@
 
 Vite front end for comment tracker.
 
+**TODO: tidy up the comment visual**
 **TODO: create a new comment!**
+**TODO: Loading page not showing**
+
+**TODO: comments should be owners comments**
 
 **TODO costume alert saying jobs done or errors**
 **TODO: if you are already logged in go to home directly.**

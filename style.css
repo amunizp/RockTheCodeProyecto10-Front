@@ -43,7 +43,7 @@
   /* --spacing-xlarge: 4rem; 64px */
   --rtc-max-width: 1000px;
   --rtc-tablet-width: 800px;
-  --rtc-phone-width: 370px;
+  --rtc-phone-width: 350px;
 
   /*Branding colors*/
   --rtc-color: #b06c6c; /* the heading */
@@ -54,13 +54,15 @@
   --rtc-color-5: #a2a0a9;
   --rtc-color-6: #4b5335;
   --rtc-color-text: #5a4a42;
+  --rtc-color-footer: green;
   /* background colours */
-  --rtc-bg-primary: var(--rtc-color-4);
+  --rtc-bg-primary: var(--rtc-color-5);
   --rtc-bg-header: var(--rtc-color);
-  --rtc-bg-mesh-color: #28a9e11f;
+  --rtc-bg-mesh-color: var(--rtc-color-6);
   --rtc-bg-transparency: rgba(250, 250, 250, 0.9);
   --rtc-bg-blank-color: #ffffff;
   --rtc-color-border-primary: var(--rtc-color-6);
+  --rtc-color-border-comment: var(--rtc-color-4);
   /* font colours */
   --rtc-font-color-p: var(--rtc-color-text);
   /* font sizes  */
@@ -76,7 +78,11 @@
   --rtc-font-color-h2: var(--rtc-color);
   --rtc-font-color-h2-span: var(--rtc-color-3);
   --rtc-font-color-subheading: var(--rtc-color-text);
-
+/* BORDER thickness */
+--rtc-border-small: 2px;
+--rtc-border-medium: 4px;
+--rtc-border-large: 8px;
+--rtc-border-xlarge: 16px;
   /* BORDER RADIUS */
   --rtc-small-br: 2px;
   --rtc-medium-br: 4px;
@@ -89,9 +95,11 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  
   /* background-color: var(--rtc-bg-primary); */
 }
 p {
-    /* overflow-wrap: break-word; */
+    overflow-wrap: anywhere;
    text-align: center;
+   max-width: 100%;
    }

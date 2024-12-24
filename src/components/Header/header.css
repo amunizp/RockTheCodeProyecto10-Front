@@ -1,5 +1,11 @@
 header {
   /* padding: var(--rtc-padding-m); */
+  background-image: url('../../../assets/images/Tiles.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: fit-content;
   position: sticky;
   top: 0;
   left: 0;
@@ -7,8 +13,8 @@ header {
   /* height: 8svh; */
   height: fit-content;
   min-height: 5svh;
-  background-color: var(--rtc-bg-header);
-  opacity: 0.8;
+  /* background-color: var(--rtc-bg-header); */
+  /* opacity: 0.8; */
   /* background-image: linear-gradient(135deg, #444cf7 25%, transparent 25%),
     linear-gradient(225deg, #444cf7 25%, transparent 25%),
     linear-gradient(45deg, #444cf7 25%, transparent 25%),
@@ -26,9 +32,9 @@ header {
   /* align-items: center; */
   /* align-items: start; */
 }
-header * {
+/* header * {
   background-color: var(--rtc-bg-header);
-}
+} */
 header ul {
   display: flex;
   justify-content: space-around;
