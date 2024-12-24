@@ -39,6 +39,7 @@ header ul {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  list-style: none;
 }
 header h1 {
   font-family: --rtc-font-heading1;
