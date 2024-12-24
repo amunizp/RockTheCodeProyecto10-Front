@@ -5,7 +5,7 @@ export const CreateComment = () => {
   const div = createPage('CreateComment')
   div.innerHTML = `<h2>NewComment</h2>`
   const form = document.createElement('form')
-  newCommentPUT = console.log('Call newCommentPUT')
+  const newCommentPUT = console.log('Call newCommentPUT')
 
   form.addEventListener('submit', newCommentPUT)
   div.append(form)

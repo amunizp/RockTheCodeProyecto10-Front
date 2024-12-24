@@ -52,7 +52,7 @@ div.comment-box:has(> div.small-boxes) {
   justify-content: space-around;
   /* padding: var(--rtc-padding-s); */
 }
-figure {
+#home figure {
   border: var(--rtc-border-medium) solid var(--rtc-color-border-comment);
   padding: var(--rtc-padding-xs);
   width: 100%;
