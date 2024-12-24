@@ -5,7 +5,7 @@ section.ParentCommentsCointainer {
   justify-content: center;
   min-width: var(--rtc-phone-width);
   max-width: var(--rtc-tablet-width);
-  width: 100%;
+  /* width: 100%; */
 }
 
 ul.commentsContainer {
