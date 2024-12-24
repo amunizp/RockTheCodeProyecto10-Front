@@ -29,6 +29,11 @@ export const commentsList = (arrayOfComments) => {
       const divDescription = document.createElement('div')
       divDescription.classList.add('comment-box')
       divDescription.innerHTML = `  <p>${comment.description}</p>`
+      const divDateTime = document.createElement('div')
+      divDateTime.classList.add('comment-box')
+      const createDateTime = new Date(comment.createdAt)
+      const updateDateTime = new Date(comment.updatedAt)
+      divDateTime.innerHTML = `  <p class="type-comment">Created ${createDateTime.toUTCString()}</p> <p class="type-comment">updated ${updateDateTime.toUTCString()}</p>`
       const divPerson = document.createElement('div')
       divPerson.classList.add('comment-box')
       divPerson.innerHTML = ` <div class="small-boxes"> <p class="type-comment">Type: ${
@@ -40,8 +45,16 @@ export const commentsList = (arrayOfComments) => {
       }</p></div>`
       ul.append(listItem)
       listItem.append(divDescription)
+      listItem.append(divDateTime)
       listItem.append(divPerson)
+      if (comment.relatedComments.length !== 0) {
+        const divRelatedComments = document.createElement('div')
+        divRelatedComments.classList.add('comment-box')
+        divRelatedComments.innerHTML = `<p class="type-comment"> Related to: ${comment.relatedComments}</p>`
+        listItem.append(divRelatedComments)
+      }
       if (comment.img.length == 0) {
+        //do nothing
       } else {
         const figure = document.createElement('figure')
         for (const img of comment.img) {
