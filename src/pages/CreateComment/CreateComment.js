@@ -1,14 +1,15 @@
 import { FormNewComment } from '../../components/FormNewComment/FormNewComment'
 import { createPage } from '../../utils/functions/createPage'
+import { newCommentPOST } from '../../utils/functions/newCommentPOST'
 import './createComment.css'
 export const CreateComment = () => {
   console.log('Create a new comment')
   const div = createPage('CreateComment')
   div.innerHTML = `<h2>NewComment</h2>`
   const form = document.createElement('form')
-  const newCommentPUT = console.log('Call newCommentPUT')
+  // const newCommentPUT = console.log('Call newCommentPUT')
 
-  form.addEventListener('submit', newCommentPUT)
+  form.addEventListener('submit', newCommentPOST)
   div.append(form)
   FormNewComment(form)
 }

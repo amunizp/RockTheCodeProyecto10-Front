@@ -2,11 +2,12 @@
 
 Vite front end for comment tracker.
 
-**TODO: tidy up the comment visual**
 **TODO: create a new comment!**
 **TODO: Loading page not showing**
-
+**TODO: back and front end pagination**
 **TODO: comments should be owners comments**
+
+**TODO: register is a POST rename file and function to reflect that!**
 
 **TODO costume alert saying jobs done or errors**
 **TODO: if you are already logged in go to home directly.**
