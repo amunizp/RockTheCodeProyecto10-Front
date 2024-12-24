@@ -1,4 +1,11 @@
 #CreateComment {
   min-height: 90svh;
-  background-color: var(--rtc-bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#CreateComment h2 {
+  color: var(--rtc-color-text);
 }

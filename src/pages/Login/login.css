@@ -14,3 +14,18 @@ form {
   gap: var(--rtc-gap-s);
   padding: var(--rtc-padding-s);
 }
+
+#login figure {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+}
+#login img {
+  gap: var(--rtc-gap-s);
+  max-width: 100%;
+  border-radius: var(--rtc-xlarge-br);
+  object-fit: contain;
+}

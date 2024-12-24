@@ -41,4 +41,7 @@ export const Login = () => {
   // FormLogin(form)
 
   // <form method="post">
+  const figure = document.createElement('figure')
+  figure.innerHTML = `<img src="../../../public/assets/images/Window.jpeg">`
+  div.append(figure)
 }

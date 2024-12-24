@@ -3,6 +3,7 @@ import './style.css'
 import { Header } from './src/components/Header/header'
 import { Main } from './src/components/Main/Main'
 import { Login } from './src/pages/Login/Login'
+import { Footer } from './src/components/Footer/header'
 
 // console.log('hola escribe algo!')
 // // Añade un controlador de eventos para el clic en el elemento para llamar a Comments
@@ -41,3 +42,4 @@ Header()
 Main()
 Login() // Llama directamente a la función Login() para cargar el formulario.
 // Login()
+Footer()

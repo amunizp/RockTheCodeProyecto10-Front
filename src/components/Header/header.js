@@ -7,7 +7,7 @@ export const Header = () => {
   const nav = document.createElement('nav')
   const ul = document.createElement('ul')
   const h1 = document.createElement('h1')
-  h1.textContent = 'Parkleys'
+  h1.textContent = 'PARKLEYS'
 
   for (const route of routes) {
     const li = document.createElement('li')
