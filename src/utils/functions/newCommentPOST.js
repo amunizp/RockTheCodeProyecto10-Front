@@ -6,7 +6,7 @@ export const newCommentPOST = async (e) => {
   console.log('Logging in', e)
 
   const [description] = e.target
-
+  console.log('the e.target is ', e.target)
   const formData = new FormData()
   formData.append('description', description)
 
@@ -15,6 +15,7 @@ export const newCommentPOST = async (e) => {
   const body = {
     description: formData.description
   }
+  console.log(body)
 
   const data = await API({
     endpoint: 'comments',

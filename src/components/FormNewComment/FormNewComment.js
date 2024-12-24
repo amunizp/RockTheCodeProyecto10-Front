@@ -5,7 +5,7 @@ export const FormNewComment = (form) => {
   var labelText = 'New Comment'
   form.className = 'newComment-form'
   form.innerHTML = ''
-  form.method = 'put'
+  form.method = 'POST'
   form.innerHTML = `${FormField({
     labelText: 'description'
   })}`
