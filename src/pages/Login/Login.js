@@ -42,6 +42,6 @@ export const Login = () => {
 
   // <form method="post">
   const figure = document.createElement('figure')
-  figure.innerHTML = `<img src="/public/assets/static/Window.jpeg" alt="Picture of a classic Parkleys window.">`
+  figure.innerHTML = `<img src="/assets/static/Window.jpeg" alt="Picture of a normal Parkleys window.">`
   div.append(figure)
 }
