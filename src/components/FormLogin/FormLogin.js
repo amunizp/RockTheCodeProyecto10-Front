@@ -1,4 +1,3 @@
-import { loginPUT } from '../../utils/functions/LoginPUT'
 import { BasicButton } from '../Buttons/BasicButton'
 import { FormField } from '../FormField/FormField'
 import './FormLogin.css'

@@ -1,3 +1,4 @@
+import { FormNewComment } from '../../components/FormNewComment/FormNewComment'
 import { createPage } from '../../utils/functions/createPage'
 import './createComment.css'
 export const CreateComment = () => {
