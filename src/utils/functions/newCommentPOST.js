@@ -32,7 +32,7 @@ export const newCommentPOST = async (e) => {
   ).personName
   // return data
   alert(
-    `I would like to show you the data ${personNameStorage}, I have created your Comment! ${data} I will let you add some more. Or maybe you just want to go home`
+    `I would like to show you the data ${personNameStorage}, I have created your Comment! here it is ${data} I will let you add some more. Or maybe you just want to go home`
   )
 
   CreateComment()
