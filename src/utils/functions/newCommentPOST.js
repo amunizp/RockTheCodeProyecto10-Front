@@ -8,7 +8,7 @@ export const newCommentPOST = async (e) => {
   const [description] = e.target
   console.log('the e.target is ', e.target)
   const formData = new FormData()
-  formData.append('description', description)
+  formData.append('description', description.value)
 
   const token = JSON.parse(localStorage.getItem('token'))
 
@@ -32,7 +32,7 @@ export const newCommentPOST = async (e) => {
   ).personName
   // return data
   alert(
-    `I would like to show you the data ${personNameStorage}, I have created your Comment! I will let you add some more. Or maybe you just want to go home`
+    `I would like to show you the data ${personNameStorage}, I have created your Comment! ${data} I will let you add some more. Or maybe you just want to go home`
   )
 
   CreateComment()
