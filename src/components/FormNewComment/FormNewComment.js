@@ -7,7 +7,7 @@ export const FormNewComment = (form) => {
   form.innerHTML = ''
   form.method = 'POST'
   form.innerHTML = `${FormField({
-    labelText: 'description'
+    labelText: labelText
   })}`
   form.append(
     BasicButton({
