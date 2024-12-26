@@ -1,3 +1,12 @@
-.form-field {
+/* .form-field {
   border-radius: var(--rtc-xlarge-br);
+} */
+
+input.form-field {
+  border: var(--rtc-border-medium) solid var(--rtc-color-border-comment);
+  padding: var(--rtc-padding-xs);
+  max-width: var(--rtc-phone-width);
+  width: 100%;
+  background-color: var(--rtc-bg-primary);
+  /* align-items: center; */
 }

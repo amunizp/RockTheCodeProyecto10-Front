@@ -8,7 +8,12 @@ export const FormNewComment = (form) => {
   form.method = 'POST'
   form.innerHTML = `${FormField({
     labelText: 'description'
-  })}`
+  })} ${FormField({
+    labelText: 'Image',
+    type: 'file',
+    required: false
+  })})
+  }`
   form.append(
     BasicButton({
       text: labelText,
