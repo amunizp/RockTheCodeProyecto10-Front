@@ -1,7 +1,7 @@
 import { Login } from '../../pages/Login/Login'
 import { API } from '../API/API'
 
-export const registerPUT = async (e) => {
+export const registerPOST = async (e) => {
   e.preventDefault()
   console.log('Registering', e)
 

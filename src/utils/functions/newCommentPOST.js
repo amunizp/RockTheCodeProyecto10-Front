@@ -3,19 +3,17 @@ import { API } from '../API/API'
 
 export const newCommentPOST = async (e) => {
   e.preventDefault()
-  console.log('Logging in', e)
 
   const [description] = e.target
   console.log('the e.target is ', e.target)
   const formData = new FormData()
-  formData.append('description', description.value)
+  formData.append('description', description)
 
   const token = JSON.parse(localStorage.getItem('token'))
 
   const body = {
-    description: formData.description
+    description: formData.get('description')
   }
-  console.log(body)
 
   const data = await API({
     endpoint: 'comments',
@@ -24,7 +22,7 @@ export const newCommentPOST = async (e) => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     },
-    body //: formData
+    body
   })
 
   const personNameStorage = JSON.parse(

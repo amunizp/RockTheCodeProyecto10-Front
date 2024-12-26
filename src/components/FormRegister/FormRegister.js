@@ -5,6 +5,7 @@ export const FormRegister = (form) => {
   var labelText = 'Register'
   form.className = 'register-form'
   form.innerHTML = ''
+  form.method = 'post'
   form.innerHTML = `${FormField({ labelText })} ${FormField({
     labelText: 'Password',
     type: 'password'

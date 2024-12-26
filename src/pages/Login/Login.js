@@ -2,8 +2,8 @@ import { BasicButton } from '../../components/Buttons/BasicButton'
 import { FormLogin } from '../../components/FormLogin/FormLogin'
 import { FormRegister } from '../../components/FormRegister/FormRegister'
 import { createPage } from '../../utils/functions/createPage'
-import { loginPUT } from '../../utils/functions/LoginPUT'
-import { registerPUT } from '../../utils/functions/RegisterPUT'
+import { loginPOST } from '../../utils/functions/LoginPOST'
+import { registerPOST } from '../../utils/functions/RegisterPOST'
 import './login.css'
 
 let showRegister = false
@@ -12,7 +12,7 @@ export const Login = () => {
   const div = createPage('login')
 
   const form = document.createElement('form')
-  form.addEventListener('submit', loginPUT)
+  form.addEventListener('submit', loginPOST)
   div.append(
     BasicButton({
       text: 'You do not have an account?',
@@ -23,11 +23,11 @@ export const Login = () => {
           ? 'Not Registered?'
           : 'Already Registered?'
         if (!showRegister) {
-          form.removeEventListener('submit', registerPUT)
-          form.addEventListener('submit', loginPUT)
+          form.removeEventListener('submit', registerPOST)
+          form.addEventListener('submit', loginPOST)
         } else {
-          form.removeEventListener('submit', loginPUT)
-          form.addEventListener('submit', registerPUT)
+          form.removeEventListener('submit', loginPOST)
+          form.addEventListener('submit', registerPOST)
         }
         // form.addEventListener('submit', !showRegister ? loginPUT : registerPUT)
       },
