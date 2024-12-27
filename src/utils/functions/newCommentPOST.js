@@ -4,18 +4,23 @@ import { API } from '../API/API'
 export const newCommentPOST = async (e) => {
   e.preventDefault()
 
-  // const [description] = e.target
-  // console.log('the e.target is ', e.target)
   const formData = new FormData(e.target)
-  // formData.append('description', description)
-  console.log(formData)
+
+  const images = formData.getAll('files[]').map((x) => x.name)
+
+  const files = formData.getAll('files[]')
+  console.log('cloudinary files:', files)
+
   try {
     if (localStorage.getItem('token') != 'undefined') {
       const token = JSON.parse(localStorage.getItem('token'))
       const body = {
-        description: formData.get('description')
+        description: formData.get('description'),
+        img: images,
+        upload_preset: 'docs_upload_example_us_preset'
       }
-
+      console.log('body ', body)
+      console.log('formData ', formData)
       const data = await API({
         endpoint: 'comments',
         method: 'POST',

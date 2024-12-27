@@ -16,5 +16,6 @@ export const API = async ({
   })
 
   let response = await res.json()
+  // showMessage(response.message, res.status == 200 ? 'success' : 'error')
   return response
 }

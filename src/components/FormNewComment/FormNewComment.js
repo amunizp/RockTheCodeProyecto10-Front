@@ -9,7 +9,9 @@ export const FormNewComment = (form) => {
   form.innerHTML = `${FormField({
     labelText: 'description',
     titleText: 'Write your comment here'
-  })}`
+  })}
+  <input type='file' name='files[]' multiple>
+  `
   // ${FormField({
   //   labelText: 'Upload Images',
   //   type: 'file',
