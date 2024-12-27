@@ -8,7 +8,7 @@ export const CreateComment = () => {
   div.innerHTML = `<h2>NewComment</h2>`
   const form = document.createElement('form')
   // const newCommentPUT = console.log('Call newCommentPUT')
-
+  form.setAttribute('enctype', 'multipart/form-data')
   form.addEventListener('submit', newCommentPOST)
   div.append(form)
   FormNewComment(form)

@@ -6,8 +6,12 @@ export const FormLogin = (form) => {
   form.className = 'login-form'
   form.innerHTML = ''
   form.method = 'post'
-  form.innerHTML = `${FormField({ labelText })} ${FormField({
+  form.innerHTML = `${FormField({
+    labelText,
+    titleText: labelText
+  })} ${FormField({
     labelText: 'Password',
+    titleText: 'Password',
     type: 'password'
   })}`
   form.append(

@@ -15,14 +15,23 @@ export const registerPOST = async (e) => {
     personName: nameInput.value,
     password: passwordInput.value
   }
-  const data = await API({
+
+  let data = await API({
     endpoint: 'people/register',
     method: 'POST',
     body //: formData
   })
-  // console.log('this is the data', data)
-  alert(`I have created your account, ${data.personName}! You can log in now.`)
-  Login()
+  if (data.personName) {
+    alert(`Hello ${data.personName}, you are now registered, please login`)
+    Login()
+  } else {
+    alert(data)
+  }
+  // alert(
+  //   `I have created your account, ${data.personName}! You can log in now.`
+  // )
+  // Login()
+
   // try {
 
   // } catch (error) {

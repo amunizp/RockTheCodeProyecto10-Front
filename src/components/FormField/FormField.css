@@ -10,3 +10,7 @@ input.form-field {
   background-color: var(--rtc-bg-primary);
   /* align-items: center; */
 }
+
+#PleaseWriteyourCommentHere {
+  height: auto;
+}

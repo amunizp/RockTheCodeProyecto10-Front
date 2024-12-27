@@ -1,11 +1,18 @@
 import './FormField.css'
 
-export const FormField = ({ labelText, type = 'text', required = true }) => {
+export const FormField = ({
+  labelText,
+  titleText,
+  type = 'text',
+  required = true
+}) => {
   return `
   <label for="${labelText}" >
-    ${labelText}
+    ${titleText}
   </label>
-  <input class="form-field" type="${type}" id="${labelText}" name="${labelText}" autocomplete="${
+  <input class="form-field" type="${type}" id="${
+    labelText //.replace(/ /g, ''  )
+  }" name="${labelText}" autocomplete="${
     type === 'password' ? 'current-password' : 'name'
   }" required=${required} placeholder="${type}" ${
     type === 'password' ? 'pattern = ".*.{8,}"' : ''

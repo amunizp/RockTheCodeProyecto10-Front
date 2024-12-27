@@ -6,9 +6,13 @@ export const FormRegister = (form) => {
   form.className = 'register-form'
   form.innerHTML = ''
   form.method = 'post'
-  form.innerHTML = `${FormField({ labelText })} ${FormField({
+  form.innerHTML = `${FormField({
+    labelText,
+    titleText: labelText
+  })} ${FormField({
     labelText: 'Password',
-    type: 'password'
+    type: 'password',
+    titleText: 'Password'
   })}`
   form.append(
     BasicButton({
