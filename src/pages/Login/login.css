@@ -16,7 +16,7 @@ form {
 }
 
 #login figure {
-  width: 100%;
+  width: var(--rtc-phone-width);
   display: flex;
   flex-direction: row;
   align-items: center;
