@@ -6,8 +6,8 @@ footer {
 
   z-index: 99;
 
-  background-color: var(--rtc-color-footer);
-  color: var(--rtc-font-color-h1-impact);
+  background-color: var(--parkleys-color-footer);
+  color: var(--parkleys-font-color-h1-impact);
   background-image: url('/assets/static/Footer.jpeg');
   background-position: center;
   background-repeat: no-repeat;

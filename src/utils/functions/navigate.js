@@ -1,5 +1,7 @@
 export const navigate = (e, route) => {
-  e.preventDefault()
+  if (e) {
+    e.preventDefault()
+  }
   window.history.pushState('', '', route.path)
   route.page()
 }

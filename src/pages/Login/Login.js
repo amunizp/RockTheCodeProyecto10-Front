@@ -10,9 +10,10 @@ let showRegister = false
 export const Login = () => {
   console.log('Got to log in page')
   const div = createPage('login')
-
   const form = document.createElement('form')
   form.addEventListener('submit', loginPOST)
+  div.append(form)
+  FormLogin(form)
   div.append(
     BasicButton({
       text: 'You do not have an account?',
@@ -29,18 +30,11 @@ export const Login = () => {
           form.removeEventListener('submit', loginPOST)
           form.addEventListener('submit', registerPOST)
         }
-        // form.addEventListener('submit', !showRegister ? loginPUT : registerPUT)
       },
       className: 'button-toggle'
     })
   )
-  // localStorage.getItem('person') ? div.createElement('h2') :
-  div.append(form)
-  FormLogin(form)
 
-  // FormLogin(form)
-
-  // <form method="post">
   const figure = document.createElement('figure')
   figure.innerHTML = `<img src="/assets/static/Window.jpeg" alt="Picture of a normal Parkleys window.">`
   div.append(figure)
