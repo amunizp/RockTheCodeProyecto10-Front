@@ -6,11 +6,12 @@ export const FormNewComment = (form) => {
   form.className = 'newComment-form'
   form.innerHTML = ''
   form.method = 'POST'
+  form.enctype = 'multipart/form-data'
   form.innerHTML = `${FormField({
     labelText: 'description',
     titleText: 'Write your comment here'
   })}
-  <input type='file' name='files[]' multiple>
+  <input type='file' name='img' multiple>
   `
   // ${FormField({
   //   labelText: 'Upload Images',
