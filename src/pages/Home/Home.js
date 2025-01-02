@@ -9,9 +9,19 @@ export const Home = async () => {
   div.innerHTML = `<h2>Welcome Home</h2>`
 
   Loading(div)
-  const arrayOfComments = await allCommentsGET()
+  try {
+    const arrayOfComments = await allCommentsGET()
+    if (arrayOfComments.error) {
+      throw new Error(arrayOfComments.error)
+    }
+    console.log('this is the array of comments', arrayOfComments)
 
-  const section = commentsList(arrayOfComments)
-  div.append(section)
-  document.getElementById('loader').remove()
+    const section = commentsList(arrayOfComments)
+    div.append(section)
+  } catch (error) {
+    console.error('Error:', error) // Log the error to the console
+    alert(`Error message: ${error.message}`)
+  } finally {
+    document.getElementById('loader').remove()
+  }
 }
