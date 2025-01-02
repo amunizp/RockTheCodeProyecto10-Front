@@ -16,6 +16,8 @@ export const API = async ({
   })
 
   let response = await res.json()
-  // showMessage(response.message, res.status == 200 ? 'success' : 'error')
+  if (res.status === 400 || res.status === 401 || res.status === 500) {
+    return { error: response }
+  }
   return response
 }
