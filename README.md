@@ -1,7 +1,7 @@
 # RockTheCodeProyecto10-Front
 
 Vite front end for comment tracker.
-
+**TODO: Resister box is too small for the forms.**
 **TODO: register is a POST rename file and function to reflect that!**
 
 **TODO: Loading page not showing**
