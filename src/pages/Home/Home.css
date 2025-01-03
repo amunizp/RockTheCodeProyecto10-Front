@@ -10,6 +10,6 @@
   color: var(--rtc-color-text);
 }
 
-img:hover {
+.detailAllComments img:hover {
   transform: scale(5, 5);
 }
