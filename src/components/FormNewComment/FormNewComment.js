@@ -7,90 +7,65 @@ export const FormNewComment = (form) => {
   form.innerHTML = ''
   form.method = 'POST'
   form.enctype = 'multipart/form-data'
-  form.innerHTML = `${FormField({
-    labelText: 'description',
-    titleText: 'Write your comment here'
+  form.innerHTML = `
+   <label for="story" >Tell us your comment, this will be publicly shared:</label>
+
+  <textarea id="description" name="description" rows="5" cols="33" >
+ En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.
+  </textarea>
+  
+  ${FormField({
+    labelText: 'relatedComments',
+    titleText: 'Write related comments here separated by commas',
+    required: false
   })}
-  <input type='file' name='img' multiple>
+  <label for="img">Upload Images, four maximum.</label>
+  <input id="imageInput" type='file' name='img' multiple> 
+  <fieldset>
+  <label for="resolved">Tick if resolved.</label>
+  <input type="checkbox" data-toggle="switch" name="resolved" id="resolved" value="true" />
+  </fieldset>
+    
+     <label for="typeComment">What category?</label>
+  <select id="typeComment" name="typeComment">
+  
+    <option value="🛠️">🛠️: Repair</option>
+    <option value="🌳">🌳: Garden</option>
+    <option selected value="💬">💬: Comment</option>
+  </select>
   `
-  // ${FormField({
-  //   labelText: 'Upload Images',
-  //   type: 'file',
-  //   required: false
-  // })}
-  //     `${FormField({
-  //       labelText: 'Was it resolved?',
-  //       type: 'checkbox',
-  //       required: false
-  //     })}
-  //   ${FormField({
-  //     labelText: 'Please write any related comment ID separated by commas',
-  //     type: 'text',
-  //     required: false
-  //   })}
-  //   <fieldset>
-  //    <legend>Select a Category</legend>
+  async function compressImage(blobImg, percent) {
+    let bitmap = await createImageBitmap(blobImg)
+    let canvas = document.createElement('canvas')
+    let ctx = canvas.getContext('2d')
+    canvas.width = bitmap.width
+    canvas.height = bitmap.height
+    ctx.drawImage(bitmap, 0, 0)
+    let dataUrl = canvas.toDataURL('image/jpeg', percent / 100)
+    return dataUrl
+  }
 
-  //   <div>
-  //     <input type="radio" id="comment" name="typeComment" value="comment" />
-  //     <label for="comment">Comment</label>
-  //   </div>
+  imageInput.addEventListener('change', async (e) => {
+    //source: https://stackoverflow.com/a/73744343/14037059
+    console.log('File Selected: ', e.target.files)
+    for (const img of e.target.files) {
+      // let img = e.target.files[0]
 
-  //   <div>
-  //     <input type="radio" id="repair" name="typeComment" value="repair" />
-  //     <label for="repair">repair</label>
-  //   </div>
+      console.log('File Name: ', img.name)
+      console.log('Original Size: ', img.size.toLocaleString())
 
-  //   <div>
-  //     <input type="radio" id="Garden" name="typeComment" value="Garden" />
-  //     <label for="Garden">Garden</label>
-  //   </div>
-  //   </fieldset>
-
-  // <label for="story">Tell us your story:</label>
-
-  // <textarea id="story" name="story" rows="5" cols="33">
-  // It was a dark and stormy night...
-  // </textarea>
-  // <label for="selection">What category?</label>
-  // <select id="simple" name="selection">
-  // <option selected >Choose a category</option>
-  //   <option value="🛠️">🛠️: Repair</option>
-  //   <option value="🌳">🌳: Garden</option>
-  //   <option value="🗣️">🗣️: Comment</option>
-  // </select>
-
-  // <input type='file' name='files[]' multiple>
-
-  //   `
+      let imgCompressed = await compressImage(img, 75) // set to 75%
+      let compSize = atob(imgCompressed.split(',')[1]).length
+      console.log('Compressed Size: ', compSize.toLocaleString())
+      //console.log(imgCompressed)
+    }
+  })
   form.append(
     BasicButton({
-      text: labelText,
+      text: 'Submit a New Comment',
       fnc: () => {
         console.log('Submitted New Comment')
       }
     })
   )
 }
-
-// const commentSchema = new mongoose.Schema(
-//   {
-//     img: [{ type: String, trim: true, required: false }],
-//     description: { type: String, required: true },
-//     resolved: { type: Boolean, required: true, default: false },
-//     person: { type: mongoose.Types.ObjectId, required: true, ref: 'people' },
-//     relatedComments: [
-//       // { type: mongoose.Types.ObjectId, required: false, ref: 'comments' }
-//       this
-//     ],
-//     typeComment: {
-//       type: String,
-//       required: false,
-//       enum: ['🛠️', '💬', '🌳']
-//     }
-//   },
-//   {
-//     timestamps: true,
-//     collection: 'comments'
-//   }
-// )
