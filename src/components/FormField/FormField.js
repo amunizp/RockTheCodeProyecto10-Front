@@ -14,8 +14,8 @@ export const FormField = ({
     labelText //.replace(/ /g, ''  )
   }" name="${labelText}" autocomplete="${
     type === 'password' ? 'current-password' : 'name'
-  }" required=${required} placeholder="${type}" ${
-    type === 'password' ? 'pattern = ".*.{8,}"' : ''
+  }" ${required ? 'required' : ''} placeholder='${type}' ${
+    type === 'password' ? 'pattern = ".*.{8,}"' : 'pattern = ".*"'
   } "  title= "${
     type === 'password'
       ? 'It must be at least 8 characters'

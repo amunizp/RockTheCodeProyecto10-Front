@@ -1,25 +1,12 @@
-// Define una arrow function llamada `template` que devuelve un template string.
 import './Comments.css'
 
-// {
-//   img: [{ type: String, trim: true, required: false }],
-//   description: { type: String, required: true },
-//   resolved: { type: Boolean, required: true, default: false },
-//   person: { type: mongoose.Types.ObjectId, required: true, ref: 'people' },
-//   relatedComments: [
-//     // { type: mongoose.Types.ObjectId, required: false, ref: 'comments' }
-//     this
-//   ],
-//   typeComment: {
-//     type: String,
-//     required: false,
-//     enum: ['repair', 'info request']
-//   }
-// }
-export const commentsList = (arrayOfComments) => {
+export const commentsList = (arrayOfComments, title) => {
   const section = document.createElement('section')
   section.classList.add('ParentCommentsCointainer')
-  section.innerHTML = `<h3>All Comments</h3>`
+  const detailAllComments = document.createElement('details')
+  detailAllComments.classList.add('detailAllComments')
+  section.append(detailAllComments)
+  detailAllComments.innerHTML = `<summary>${title}</summary>`
   const ul = document.createElement('ul')
   ul.classList.add('commentsContainer')
   if (Array.isArray(arrayOfComments) || !arrayOfComments.length) {
@@ -67,6 +54,6 @@ export const commentsList = (arrayOfComments) => {
   } else {
     ul.innerHTML = `<li class ="comment"><p>No comments here</p></li>`
   }
-  section.append(ul)
+  detailAllComments.append(ul)
   return section
 }

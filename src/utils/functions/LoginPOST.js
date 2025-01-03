@@ -17,6 +17,9 @@ export const loginPOST = async (e) => {
       method: 'POST',
       body
     })
+    if (data.error) {
+      throw new Error(data.error)
+    }
     if (data.token) {
       localStorage.setItem('token', JSON.stringify(data.token))
       localStorage.setItem('person', JSON.stringify(data.person)) //this is not storing
@@ -28,8 +31,6 @@ export const loginPOST = async (e) => {
     In your local storage I saved a token, name and your hashed password. `
       )
       Home()
-    } else {
-      alert(data)
     }
   } catch (error) {
     alert(`Error message: `, error.message)

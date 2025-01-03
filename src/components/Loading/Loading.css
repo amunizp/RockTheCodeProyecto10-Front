@@ -5,9 +5,7 @@
   display: inline-block;
   position: relative;
   font-size: 48px;
-  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  display: none;
 }
 .loader::after {
   content: '';
@@ -26,9 +24,10 @@
     box-shadow: 10px 0 rgba(255, 255, 255, 0), 20px 0 rgba(255, 255, 255, 0);
   }
   50% {
-    box-shadow: 10px 0 white, 20px 0 rgba(255, 255, 255, 0);
+    box-shadow: 10px 0 var(--parkleys-bg-header), 20px 0 rgba(255, 255, 255, 0);
   }
   100% {
-    box-shadow: 10px 0 white, 20px 0 white;
+    box-shadow: 10px 0 var(--parkleys-bg-header),
+      20px 0 var(--parkleys-bg-header);
   }
 }

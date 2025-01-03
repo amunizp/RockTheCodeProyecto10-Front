@@ -4,6 +4,6 @@ export const Loading = (parent) => {
   const loader = document.createElement('span')
   loader.classList.add('loader')
   loader.id = 'loader'
-  loader.innerText = 'loading'
+  loader.innerText = 'Loading'
   parent.append(loader)
 }
