@@ -13,13 +13,14 @@ export const Home = async () => {
 
   Loading(div)
   try {
-    const arrayOfComments = await allCommentsGET()
-    if (arrayOfComments.error) {
-      throw new Error(arrayOfComments.error)
-    }
-    console.log('this is the array of comments', arrayOfComments)
-    const sectionAll = commentsList(arrayOfComments, 'All Comments')
-    div.append(sectionAll)
+    // //get all comments
+    // const arrayOfComments = await allCommentsGET()
+    // if (arrayOfComments.error) {
+    //   throw new Error(arrayOfComments.error)
+    // }
+    // console.log('this is the array of comments', arrayOfComments)
+    // const sectionAll = commentsList(arrayOfComments, 'All Comments')
+    // div.append(sectionAll)
     // Get my comments
     const arrayOfMyComments = await myCommentsGET()
     if (arrayOfMyComments.error) {
