@@ -42,7 +42,7 @@ export const newCommentPOST = async (e) => {
     }
   } catch (error) {
     console.log('Error submitting a new comment:', error)
-    div.innerHTML = `<h3>Error submitting a new comment</h3>`
+    div.innerHTML += `<h3>Error submitting a new comment</h3><p>${error}</p>`
   } finally {
     if (document.getElementById('loader')) {
       document.getElementById('loader').remove()
