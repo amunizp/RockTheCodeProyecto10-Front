@@ -1,3 +1,4 @@
+import ErrorDiv from '../../components/errorDiv/errorDiv'
 import { Loading } from '../../components/Loading/Loading'
 import { CreateComment } from '../../pages/CreateComment/CreateComment'
 import { API } from '../API/API'
@@ -26,6 +27,9 @@ export const newCommentPOST = async (e) => {
 
         body: formData // Send the formData directly
       })
+      if (data.error) {
+        throw new Error(data.error)
+      }
       if (data.description) {
         const personNameStorage = JSON.parse(
           localStorage.getItem('person')
@@ -42,7 +46,8 @@ export const newCommentPOST = async (e) => {
     }
   } catch (error) {
     console.log('Error submitting a new comment:', error)
-    div.innerHTML = `<h3>Error submitting a new comment</h3>`
+    // div.innerHTML = ErrorDiv(error.message)
+    div.append(ErrorDiv(error.message))
   } finally {
     if (document.getElementById('loader')) {
       document.getElementById('loader').remove()

@@ -1,1 +1,11 @@
 /*Add the styles for your component here.*/
+section.errorDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--parkleys-color-error);
+  flex-direction: column;
+}
+section.errorDiv h3 {
+  color: var(--parkleys-color-6);
+}

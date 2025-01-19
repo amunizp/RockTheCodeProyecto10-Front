@@ -33,7 +33,8 @@ export const loginPOST = async (e) => {
       Home()
     }
   } catch (error) {
-    alert(`Error message: `, error.message)
+    console.error('Error logging in:', error)
+    alert(`Error message: `, error)
   }
   // localStorage.removeItem('token')
 }

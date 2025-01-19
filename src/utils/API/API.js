@@ -1,5 +1,9 @@
-// const url = 'http://localhost:3000/api/v1/'
-const url = 'https://rock-the-code-proyecto10-back.vercel.app/api/v1/'
+const url = 'http://localhost:3000/api/v1/'
+// const devUrl = 'http://localhost:3000/api/v1/'
+
+// const prodUrl = 'https://rock-the-code-proyecto10-back.vercel.app/api/v1/'
+// const url = process.env.NODE_ENV === 'production' ? prodUrl : devUrl
+
 export const API = async ({
   endpoint,
   method = 'GET',

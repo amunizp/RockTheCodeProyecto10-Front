@@ -16,7 +16,9 @@ export const Home = async () => {
   try {
     // Get all comments
     const arrayOfMyComments = await myCommentsGET()
-
+    if (arrayOfMyComments.error) {
+      throw new Error(arrayOfMyComments.error)
+    }
     console.log('this is the array of my comments', arrayOfComments)
     const sectionMine = commentsList(arrayOfMyComments, 'My Comments')
     div.append(sectionMine)
@@ -25,20 +27,16 @@ export const Home = async () => {
     const types = ['🌳', '🛠️', '💬']
     types.forEach(async (type) => {
       const arrayOfTypeComments = await typeCommentsGET(type)
-
+      if (arrayOfTypeComments.error) {
+        throw new Error(arrayOfTypeComments.error)
+      }
       console.log(`This is the  arrayOf ${type} Comments`, arrayOfComments)
       const sectionType = commentsList(arrayOfTypeComments, `${type} Comments`)
       div.append(sectionType)
     })
   } catch (error) {
-    const errorCaught = new Error(
-      `Sorry I broke inside! Please tell the admin the following: ${error} `,
-      { cause: error }
-    )
-
-    div.append(ErrorDiv(errorCaught.message))
-    // console.error('Error:', error) // Log the error to the console
-    // alert(`Error message: ${error.message}`)
+    console.error('Error in Home page:', error)
+    div.append(ErrorDiv(error.message))
   } finally {
     document.getElementById('loader').remove()
   }

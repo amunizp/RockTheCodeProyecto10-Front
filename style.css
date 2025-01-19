@@ -63,6 +63,7 @@
   --parkleys-bg-blank-color: #ffffff;
   --parkleys-color-border-primary: var(--parkleys-color-6);
   --parkleys-color-border-comment: var(--parkleys-color-4);
+  --parkleys-color-error: var(--parkleys-color-3);
   /* font colours */
   --parkleys-font-color-p: var(--parkleys-color-text);
   /* font sizes  */
