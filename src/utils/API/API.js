@@ -21,7 +21,7 @@ export const API = async ({
 
   let response = await res.json()
   if (!res.ok) {
-    throw new Error(response.message || 'Something went wrong')
+    throw new Error(res.message || 'Something went wrong')
     // return { error: response }
   }
   return response

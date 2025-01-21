@@ -36,7 +36,7 @@ export const Home = async () => {
     })
   } catch (error) {
     console.error('Error in Home page:', error)
-    div.append(ErrorDiv(error.message))
+    div.prepend(ErrorDiv(error.message))
   } finally {
     document.getElementById('loader').remove()
   }

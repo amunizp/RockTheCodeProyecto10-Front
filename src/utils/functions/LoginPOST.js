@@ -1,3 +1,4 @@
+import ErrorDiv from '../../components/errorDiv/errorDiv'
 import { Loading } from '../../components/Loading/Loading'
 import { Home } from '../../pages/Home/Home'
 import { API } from '../API/API'
@@ -36,7 +37,9 @@ export const loginPOST = async (e, div) => {
     }
   } catch (error) {
     console.error('Error logging in:', error)
-    alert(`Error message: `, error)
+    parent.prepend(ErrorDiv(error))
+
+    // alert(`Error message: `, error)
   } finally {
     document.getElementById('loader').remove()
   }
