@@ -20,8 +20,11 @@ export const API = async ({
   })
 
   let response = await res.json()
+  console.log('API response of res.json ', response)
+  console.log('API response status res.status: ', res.status)
+  console.log('API response status res (general): ', res)
   if (!res.ok) {
-    throw new Error(res.message || 'Something went wrong')
+    throw new Error(response || res.message || 'Something went wrong')
     // return { error: response }
   }
   return response
