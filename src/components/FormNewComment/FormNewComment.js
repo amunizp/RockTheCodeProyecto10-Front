@@ -8,11 +8,9 @@ export const FormNewComment = (form) => {
   form.method = 'POST'
   form.enctype = 'multipart/form-data'
   form.innerHTML = `
-   <label for="story" >Tell us your comment, this will be publicly shared:</label>
+   <label for="story" >Tell us your comment, this will be publicly shared, this field is required</label>
 
-  <textarea id="description" name="description" rows="5" cols="33" >
- En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.
-  </textarea>
+  <textarea id="description" name="description" rows="5" cols="33" title="This is a required field to find out what is needed." placeholder="Write your comment here" required ></textarea>
   
   ${FormField({
     labelText: 'relatedComments',

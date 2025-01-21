@@ -1,5 +1,5 @@
 #CreateComment {
-  min-height: 90svh;
+  min-height: 50svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
