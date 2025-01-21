@@ -1,9 +1,11 @@
+import { Loading } from '../../components/Loading/Loading'
 import { Home } from '../../pages/Home/Home'
 import { API } from '../API/API'
 
-export const loginPOST = async (e) => {
+export const loginPOST = async (e, div) => {
   e.preventDefault()
-
+  const parent = document.getElementById('login')
+  Loading(parent)
   const [nameInput, passwordInput] = e.target
   console.log('Logging in', nameInput.personName)
   const body = {
@@ -35,6 +37,8 @@ export const loginPOST = async (e) => {
   } catch (error) {
     console.error('Error logging in:', error)
     alert(`Error message: `, error)
+  } finally {
+    document.getElementById('loader').remove()
   }
   // localStorage.removeItem('token')
 }

@@ -19,7 +19,7 @@ export const Home = async () => {
     if (arrayOfMyComments.error) {
       throw new Error(arrayOfMyComments.error)
     }
-    console.log('this is the array of my comments', arrayOfComments)
+    console.log('this is the array of my comments', arrayOfMyComments)
     const sectionMine = commentsList(arrayOfMyComments, 'My Comments')
     div.append(sectionMine)
 
@@ -30,7 +30,7 @@ export const Home = async () => {
       if (arrayOfTypeComments.error) {
         throw new Error(arrayOfTypeComments.error)
       }
-      console.log(`This is the  arrayOf ${type} Comments`, arrayOfComments)
+      console.log(`This is the  arrayOf ${type} Comments`, arrayOfTypeComments)
       const sectionType = commentsList(arrayOfTypeComments, `${type} Comments`)
       div.append(sectionType)
     })
