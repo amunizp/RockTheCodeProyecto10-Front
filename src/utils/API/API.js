@@ -23,8 +23,16 @@ export const API = async ({
   console.log('API response of res.json ', response)
   console.log('API response status res.status: ', res.status)
   console.log('API response status res (general): ', res)
+  console.log('API response status res.message: ', res.message)
+  console.log('API response status res.error: ', response.error)
+
   if (!res.ok) {
-    throw new Error(response || res.message || 'Something went wrong')
+    throw new Error(
+      `<dl><dt>Response:</dt> <dd>${response}</dd><dl>
+      <dt>Message:</dt> <dd>${response.message}</dd>
+      <dt>Error received:</dt> <dd>${response.error}</dd>
+      <dt>status:</dt> <dd>${JSON.stringify(res.status)}</dd></dl>`
+    )
     // return { error: response }
   }
   return response

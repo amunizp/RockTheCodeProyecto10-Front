@@ -2,6 +2,35 @@
   border-radius: var(--parkleys-xlarge-br);
 } */
 
+/* form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--parkleys-gap-s);
+  padding: var(--parkleys-padding-s);
+} */
+
+form {
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: var(--parkleys-gap-s); */
+  padding-right: var(--parkleys-padding-s);
+  padding-left: var(--parkleys-padding-s);
+  border-radius: 0;
+  max-width: var(--parkleys-phone-width);
+  /* width: 100%; */
+  border-top-style: solid;
+  border-top-width: var(--parkleys-border-large);
+  border-top-color: var(--parkleys-bg-header);
+  border-bottom-style: solid;
+  border-bottom-width: var(--parkleys-border-large);
+  border-bottom-color: var(--parkleys-color-footer);
+}
+
 input.form-field {
   border: var(--parkleys-border-medium) solid
     var(--parkleys-color-border-comment);
