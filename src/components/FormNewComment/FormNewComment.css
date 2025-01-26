@@ -1,6 +1,18 @@
-.textarea {
+.newComment-form .textarea {
   border: 1px solid #ccc;
   font-family: inherit;
   font-size: inherit;
   padding: 1px 6px;
+}
+.newComment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.newComment-form label {
+  text-align: center;
 }
