@@ -1,4 +1,5 @@
 import { CreateComment } from '../../pages/CreateComment/CreateComment'
+import { OneComment } from '../../pages/EditOneComment/EditOneComment'
 import { deleteCommentDEL } from '../../utils/functions/deleteCommentDEL'
 import { BasicBox } from '../BasicBox/BasicBox'
 import { singleComment } from '../singleComment/singleComment'
@@ -38,6 +39,9 @@ export const commentsList = (arrayOfComments, title) => {
         const divActionEdit = document.createElement('div')
         divActionEdit.classList.add('small-boxes', 'actionEdit', 'actionAdmin')
         divActionEdit.innerHTML = '<p>✍️</p><p>Edit this comment</p>'
+        divActionEdit.addEventListener('click', () => {
+          OneComment(comment._id)
+        })
         // admin option 2
         const divActionDelete = document.createElement('div')
         divActionDelete.classList.add('small-boxes', 'actionBin', 'actionAdmin')

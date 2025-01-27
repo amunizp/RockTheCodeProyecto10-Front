@@ -1,0 +1,88 @@
+#OneComment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+section.singleComment {
+  /* background-color: aqua; */
+  /* list-style-position: inside; */
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: var(--parkleys-gap-s); */
+  padding-right: var(--parkleys-padding-s);
+  padding-left: var(--parkleys-padding-s);
+  border-radius: 0;
+  max-width: var(--parkleys-phone-width);
+  /* width: 100%; */
+  border-top-style: solid;
+  border-top-width: var(--parkleys-border-large);
+  border-top-color: var(--parkleys-bg-header);
+  border-bottom-style: solid;
+  border-bottom-width: var(--parkleys-border-large);
+  border-bottom-color: var(--parkleys-color-footer);
+}
+div.comment-box {
+  border: var(--parkleys-border-medium) solid
+    var(--parkleys-color-border-comment);
+  padding: var(--parkleys-padding-xs);
+  max-width: var(--parkleys-phone-width);
+  width: 100%;
+  background-color: var(--parkleys-bg-primary);
+  /* align-items: center; */
+}
+div.comment-box:has(> div.small-boxes) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* padding: var(--parkleys-padding-s); */
+}
+#OneComment figure {
+  border: var(--parkleys-border-medium) solid
+    var(--parkleys-color-border-comment);
+  padding: var(--parkleys-padding-xs);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0;
+  background-color: var(--parkleys-bg-primary);
+}
+
+div.small-boxes {
+  align-items: center;
+  padding: 0;
+}
+p.who {
+  text-align: right;
+  font-size: x-small;
+}
+p.type-comment {
+  text-align: left;
+  font-size: x-small;
+}
+p.resolved {
+  text-align: center;
+  font-size: x-small;
+}
+
+#OneComment img {
+  gap: var(--parkleys-gap-s);
+  /* margin: var(--parkleys-padding-s); */
+  max-width: 20%;
+  border-radius: var(--parkleys-xlarge-br);
+  object-fit: contain;
+}
+/* ul.comment figure {
+} */
+figcaption {
+  color: black;
+}

@@ -19,10 +19,15 @@ export const singleComment = (comment) => {
   }</p> </div><div class="small-boxes"><p class="resolved">Complete: ${
     comment.resolved ? '✅' : '❎'
   } </div><div class="small-boxes"> <p class="who">Written by ${
-    comment.person.personName
+    comment.person
   }</p></div>`
   singleCommentSection.append(BasicBox(statusContent, 'status'))
-
+  console.log(
+    'the related comments are',
+    comment.relatedComments,
+    'fromthe following id',
+    comment._id
+  )
   if (comment.relatedComments.length > 0 && comment.relatedComments[0] !== '') {
     const divRelatedComments = document.createElement('div')
     divRelatedComments.classList.add('comment-box')
