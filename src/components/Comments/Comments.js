@@ -1,4 +1,5 @@
 import { CreateComment } from '../../pages/CreateComment/CreateComment'
+import { deleteCommentDEL } from '../../utils/functions/deleteCommentDEL'
 import { BasicBox } from '../BasicBox/BasicBox'
 import './Comments.css'
 
@@ -73,6 +74,10 @@ export const commentsList = (arrayOfComments, title) => {
         // admin option 2
         const divActionDelete = document.createElement('div')
         divActionDelete.classList.add('small-boxes', 'actionBin', 'actionAdmin')
+        divActionDelete.addEventListener('click', () => {
+          deleteCommentDEL(comment._id)
+        })
+
         divActionDelete.innerHTML = '<p>🗑️</p><p>Bin this comment</p>'
         divActions.appendChild(divActionEdit)
         divActions.appendChild(divActionDelete)
