@@ -10,6 +10,14 @@ export const newCommentPOST = async (e) => {
 
   const formData = new FormData(e.target)
   console.log('The form data in full', formData)
+  console.log('The form data relatedComments', formData.get('relatedComments'))
+  for (const value of formData.values()) {
+    console.log('check if any is empty string', value)
+    // if (value === '') {
+    //   alert('Please fill in all fields')
+    //   return false
+    // }
+  }
   const div = document.querySelector('.newComment-form')
   Loading(div)
   // await delay(5000)

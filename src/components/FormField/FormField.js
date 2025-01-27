@@ -4,7 +4,8 @@ export const FormField = ({
   labelText,
   titleText,
   type = 'text',
-  required = true
+  required = true,
+  textContent
 }) => {
   return `
   <label for="${labelText}" >
@@ -20,7 +21,7 @@ export const FormField = ({
     type === 'password'
       ? 'It must be at least 8 characters'
       : 'Please complete this field.'
-  }"/>
+  }" value="${textContent}"/>
   `
 }
 

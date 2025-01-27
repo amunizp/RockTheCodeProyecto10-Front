@@ -1,7 +1,7 @@
 import { BasicButton } from '../Buttons/BasicButton'
 import { FormField } from '../FormField/FormField'
 import './FormNewComment.css'
-export const FormNewComment = (form) => {
+export const FormNewComment = (form, relation) => {
   var labelText = 'New Comment'
   form.className = 'newComment-form'
   form.innerHTML = ''
@@ -15,7 +15,8 @@ export const FormNewComment = (form) => {
   ${FormField({
     labelText: 'relatedComments',
     titleText: 'Write related comments here separated by commas',
-    required: false
+    required: false,
+    textContent: relation ? relation : ''
   })}
   <label for="img">Upload Images, four maximum.</label>
   <input id="imageInput" type='file' name='img' multiple> 

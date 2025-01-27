@@ -13,3 +13,5 @@ Vite front end for comment tracker.
 
 **TODO admin edit delete**
 **TODO relations between comments : new button next to comment asking to create a new comment related to that comment**
+
+> almost but not quite, seems to do some comments and always the same comment I think I need to give the ID a new variable.

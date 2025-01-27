@@ -96,11 +96,31 @@ figcaption {
   color: black;
 }
 ul.comment li {
-  background-color: aqua;
+  /* background-color: aqua; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--parkleys-gap-s);
   padding: var(--parkleys-padding-s);
+}
+
+div.actions div.actionRelate {
+  cursor: pointer;
+  font-size: smaller;
+  background-color: var(--parkleys-color-footer);
+  color: var(--parkleys-color-4);
+  border-radius: var(--parkleys-medium-br);
+  border: var(--parkleys-border-small) solid
+    var(--parkleys-color-border-comment);
+}
+
+div.actionAdmin {
+  background-color: var(--parkleys-bg-header);
+  cursor: pointer;
+  font-size: smaller;
+  color: var(--parkleys-color-4);
+  border-radius: var(--parkleys-medium-br);
+  border: var(--parkleys-border-small) solid
+    var(--parkleys-color-border-comment);
 }
