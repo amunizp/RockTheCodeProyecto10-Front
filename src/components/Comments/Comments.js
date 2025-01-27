@@ -18,7 +18,7 @@ export const commentsList = (arrayOfComments, title) => {
       const listItem = document.createElement('li')
       listItem.classList.add('comment')
 
-      listItem.append(BasicBox(`<p>${comment._id}</p>`, 'divID'))
+      listItem.append(BasicBox(`<p>UniqueID: ${comment._id}</p>`, 'divID'))
       listItem.append(BasicBox(`<p>${comment.description}</p>`, 'description'))
       const createDateTime = new Date(comment.createdAt)
       const updateDateTime = new Date(comment.updatedAt)
@@ -60,7 +60,9 @@ export const commentsList = (arrayOfComments, title) => {
       const divActionRelate = document.createElement('div')
       divActionRelate.classList.add('small-boxes', 'actionRelate')
       divActionRelate.innerHTML = '<p>🔗</p> <p>Create a related Comment</p>'
-      divActionRelate.addEventListener('click', () => CreateComment(theID))
+      divActionRelate.addEventListener('click', () =>
+        CreateComment(comment._id)
+      )
       divActions.appendChild(divActionRelate)
 
       if (personAdmin) {

@@ -1,3 +1,4 @@
+import { compressImage } from '../../utils/functions/compressImage'
 import { BasicButton } from '../Buttons/BasicButton'
 import { FormField } from '../FormField/FormField'
 import './FormNewComment.css'
@@ -33,16 +34,16 @@ export const FormNewComment = (form, relation) => {
     <option selected value="💬">💬: Comment</option>
   </select>
   `
-  async function compressImage(blobImg, percent) {
-    let bitmap = await createImageBitmap(blobImg)
-    let canvas = document.createElement('canvas')
-    let ctx = canvas.getContext('2d')
-    canvas.width = bitmap.width
-    canvas.height = bitmap.height
-    ctx.drawImage(bitmap, 0, 0)
-    let dataUrl = canvas.toDataURL('image/jpeg', percent / 100)
-    return dataUrl
-  }
+  // async function compressImage(blobImg, percent) {
+  //   let bitmap = await createImageBitmap(blobImg)
+  //   let canvas = document.createElement('canvas')
+  //   let ctx = canvas.getContext('2d')
+  //   canvas.width = bitmap.width
+  //   canvas.height = bitmap.height
+  //   ctx.drawImage(bitmap, 0, 0)
+  //   let dataUrl = canvas.toDataURL('image/jpeg', percent / 100)
+  //   return dataUrl
+  // }
 
   imageInput.addEventListener('change', async (e) => {
     //source: https://stackoverflow.com/a/73744343/14037059
