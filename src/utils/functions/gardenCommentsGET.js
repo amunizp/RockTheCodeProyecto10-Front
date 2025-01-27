@@ -2,7 +2,7 @@ import { API } from '../API/API'
 
 export const gardenCommentsGET = async () => {
   // e.preventDefault()
-  console.log('Getting my comments')
+  // console.log('Getting my comments')
   const token = JSON.parse(localStorage.getItem('token'))
   const id = JSON.parse(localStorage.getItem('person'))._id
   console.log('this is the token', token)

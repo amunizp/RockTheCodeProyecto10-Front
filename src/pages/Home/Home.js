@@ -30,7 +30,7 @@ export const Home = async () => {
       if (arrayOfTypeComments.error) {
         throw new Error(arrayOfTypeComments.error)
       }
-      console.log(`This is the  arrayOf ${type} Comments`, arrayOfTypeComments)
+      // console.log(`This is the  arrayOf ${type} Comments`, arrayOfTypeComments)
       const sectionType = commentsList(arrayOfTypeComments, `${type} Comments`)
       div.append(sectionType)
     })

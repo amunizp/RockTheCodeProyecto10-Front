@@ -1,1 +1,20 @@
 /*Add the styles for your component here.*/
+/* section.singleComment {
+  /* list-style-position: outside;
+  padding: 0; 
+  width: 100%;
+} */
+
+section.comment-box {
+  border: var(--parkleys-border-medium) solid
+    var(--parkleys-color-border-comment);
+  padding: 0;
+  max-width: var(--parkleys-phone-width);
+  width: 100%;
+  background-color: var(--parkleys-bg-primary);
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
