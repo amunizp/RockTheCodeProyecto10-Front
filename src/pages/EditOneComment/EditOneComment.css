@@ -1,23 +1,12 @@
-section.ParentCommentsCointainer {
+#OneComment {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-width: var(--parkleys-phone-width);
-  max-width: var(--parkleys-tablet-width);
-  /* width: 100%; */
+  align-items: center;
+  width: 100%;
 }
 
-ul.commentsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-left: 0;
-  gap: var(--parkleys-gap-s);
-}
-
-li.comment {
+section.singleComment {
   /* background-color: aqua; */
   /* list-style-position: inside; */
   list-style: none;
@@ -55,7 +44,7 @@ div.comment-box:has(> div.small-boxes) {
   justify-content: space-around;
   /* padding: var(--parkleys-padding-s); */
 }
-#home figure {
+#OneComment figure {
   border: var(--parkleys-border-medium) solid
     var(--parkleys-color-border-comment);
   padding: var(--parkleys-padding-xs);
@@ -85,7 +74,7 @@ p.resolved {
   font-size: x-small;
 }
 
-li.comment img {
+#OneComment img {
   gap: var(--parkleys-gap-s);
   /* margin: var(--parkleys-padding-s); */
   max-width: 20%;
@@ -96,33 +85,4 @@ li.comment img {
 } */
 figcaption {
   color: black;
-}
-ul.comment li {
-  /* background-color: aqua; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--parkleys-gap-s);
-  padding: var(--parkleys-padding-s);
-}
-
-div.actions div.actionRelate {
-  cursor: pointer;
-  font-size: smaller;
-  background-color: var(--parkleys-color-footer);
-  color: var(--parkleys-color-4);
-  border-radius: var(--parkleys-medium-br);
-  border: var(--parkleys-border-small) solid
-    var(--parkleys-color-border-comment);
-}
-
-div.actionAdmin {
-  background-color: var(--parkleys-bg-header);
-  cursor: pointer;
-  font-size: smaller;
-  color: var(--parkleys-color-4);
-  border-radius: var(--parkleys-medium-br);
-  border: var(--parkleys-border-small) solid
-    var(--parkleys-color-border-comment);
 }

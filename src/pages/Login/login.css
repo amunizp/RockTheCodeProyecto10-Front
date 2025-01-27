@@ -1,22 +1,14 @@
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* gap: var(--rtc-gap-s); */
-  padding: var(--rtc-padding-s);
-}
 #login {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* gap: var(--rtc-gap-s); */
-  padding: var(--rtc-padding-s);
+  gap: var(--parkleys-gap-s);
+  padding: var(--parkleys-padding-s);
 }
 
 #login figure {
-  width: var(--rtc-phone-width);
+  width: calc(var(--parkleys-phone-width) * 0.5);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,8 +16,9 @@ form {
   margin: 0;
 }
 #login img {
-  gap: var(--rtc-gap-s);
+  gap: var(--parkleys-gap-s);
   max-width: 100%;
-  border-radius: var(--rtc-xlarge-br);
+  border-radius: var(--parkleys-xlarge-br);
+
   object-fit: contain;
 }

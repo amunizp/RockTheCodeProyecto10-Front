@@ -1,9 +1,12 @@
+import ErrorDiv from '../../components/errorDiv/errorDiv'
+import { Loading } from '../../components/Loading/Loading'
 import { Home } from '../../pages/Home/Home'
 import { API } from '../API/API'
 
 export const loginPOST = async (e) => {
   e.preventDefault()
-
+  const parent = document.getElementById('login')
+  Loading(parent)
   const [nameInput, passwordInput] = e.target
   console.log('Logging in', nameInput.personName)
   const body = {
@@ -26,6 +29,7 @@ export const loginPOST = async (e) => {
       const personNameStorage = JSON.parse(
         localStorage.getItem('person')
       ).personName
+
       alert(
         `You are logged in, ${personNameStorage}! will take you to your home.
     In your local storage I saved a token, name and your hashed password. `
@@ -33,7 +37,12 @@ export const loginPOST = async (e) => {
       Home()
     }
   } catch (error) {
-    alert(`Error message: `, error.message)
+    console.error('Error logging in:', error)
+    parent.prepend(ErrorDiv(error))
+
+    // alert(`Error message: `, error)
+  } finally {
+    document.getElementById('loader').remove()
   }
   // localStorage.removeItem('token')
 }

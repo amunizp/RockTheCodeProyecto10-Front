@@ -1,5 +1,4 @@
 #home {
-  min-height: 90svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,9 +6,11 @@
   /* width: 100%; */
 }
 #home h2 {
-  color: var(--rtc-color-text);
+  color: var(--parkleys-color-text);
 }
 
-.detailAllComments img:hover {
+
+#home li.comment img:hover {
+
   transform: scale(5, 5);
 }

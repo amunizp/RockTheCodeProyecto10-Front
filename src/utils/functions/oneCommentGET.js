@@ -1,22 +1,20 @@
 import { API } from '../API/API'
 
-export const gardenCommentsGET = async () => {
-  // e.preventDefault()
-  // console.log('Getting my comments')
+export const oneCommentGET = async (id) => {
+  console.log('Getting one comment')
   const token = JSON.parse(localStorage.getItem('token'))
-  const id = JSON.parse(localStorage.getItem('person'))._id
   console.log('this is the token', token)
-  console.log('this is the Id', id)
   try {
     const data = await API({
-      endpoint: `comments/type/🌳`,
+      endpoint: `comments/${id}`,
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
       }
     })
-    console.log('The data of my comments', data)
+    console.log(`this is the data of the ${id} id`, data)
+    console.log(`this is the person ${data.person}`)
     return data
   } catch (error) {
     console.error('Error fetching comments:', error)

@@ -1,0 +1,17 @@
+/*Add the styles for your component here.*/
+section.errorDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--parkleys-color-error);
+  flex-direction: column;
+  max-width: var(--parkleys-phone-width);
+  border-radius: var(--parkleys-xlarge-br);
+}
+section.errorDiv h3 {
+  color: var(--parkleys-color-6);
+}
+
+section.errorDiv dt {
+  font-weight: bold;
+}

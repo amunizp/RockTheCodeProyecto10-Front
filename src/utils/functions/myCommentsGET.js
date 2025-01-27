@@ -16,7 +16,7 @@ export const myCommentsGET = async () => {
         Authorization: `Bearer ${token}`
       }
     })
-    console.log('The data of my comments', data)
+    // console.log('The data of my comments', data)
     return data
   } catch (error) {
     console.error('Error fetching comments:', error)

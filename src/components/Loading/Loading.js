@@ -5,5 +5,5 @@ export const Loading = (parent) => {
   loader.classList.add('loader')
   loader.id = 'loader'
   loader.innerText = 'Loading'
-  parent.append(loader)
+  parent.prepend(loader)
 }

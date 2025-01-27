@@ -1,4 +1,5 @@
 import { commentsList } from '../../components/Comments/Comments'
+import ErrorDiv from '../../components/errorDiv/errorDiv'
 import { Loading } from '../../components/Loading/Loading'
 import { allCommentsGET } from '../../utils/functions/allCommentsGET'
 import { createPage } from '../../utils/functions/createPage'
@@ -13,19 +14,12 @@ export const Home = async () => {
 
   Loading(div)
   try {
-    const arrayOfComments = await allCommentsGET()
-    if (arrayOfComments.error) {
-      throw new Error(arrayOfComments.error)
-    }
-    console.log('this is the array of comments', arrayOfComments)
-    const sectionAll = commentsList(arrayOfComments, 'All Comments')
-    div.append(sectionAll)
-    // Get my comments
+    // Get all comments
     const arrayOfMyComments = await myCommentsGET()
     if (arrayOfMyComments.error) {
       throw new Error(arrayOfMyComments.error)
     }
-    console.log('this is the array of my comments', arrayOfComments)
+    // console.log('this is the array of my comments', arrayOfMyComments)
     const sectionMine = commentsList(arrayOfMyComments, 'My Comments')
     div.append(sectionMine)
 
@@ -36,13 +30,13 @@ export const Home = async () => {
       if (arrayOfTypeComments.error) {
         throw new Error(arrayOfTypeComments.error)
       }
-      console.log(`This is the  arrayOf ${type} Comments`, arrayOfComments)
+      // console.log(`This is the  arrayOf ${type} Comments`, arrayOfTypeComments)
       const sectionType = commentsList(arrayOfTypeComments, `${type} Comments`)
       div.append(sectionType)
     })
   } catch (error) {
-    console.error('Error:', error) // Log the error to the console
-    alert(`Error message: ${error.message}`)
+    console.error('Error in Home page:', error)
+    div.prepend(ErrorDiv(error.message))
   } finally {
     document.getElementById('loader').remove()
   }

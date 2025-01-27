@@ -1,3 +1,4 @@
+import ErrorDiv from '../../components/errorDiv/errorDiv'
 import { Loading } from '../../components/Loading/Loading'
 import { CreateComment } from '../../pages/CreateComment/CreateComment'
 import { API } from '../API/API'
@@ -9,6 +10,14 @@ export const newCommentPOST = async (e) => {
 
   const formData = new FormData(e.target)
   console.log('The form data in full', formData)
+  console.log('The form data relatedComments', formData.get('relatedComments'))
+  for (const value of formData.values()) {
+    console.log('check if any is empty string', value)
+    // if (value === '') {
+    //   alert('Please fill in all fields')
+    //   return false
+    // }
+  }
   const div = document.querySelector('.newComment-form')
   Loading(div)
   // await delay(5000)
@@ -26,6 +35,9 @@ export const newCommentPOST = async (e) => {
 
         body: formData // Send the formData directly
       })
+      if (data.error) {
+        throw new Error(data.error)
+      }
       if (data.description) {
         const personNameStorage = JSON.parse(
           localStorage.getItem('person')
@@ -42,7 +54,10 @@ export const newCommentPOST = async (e) => {
     }
   } catch (error) {
     console.log('Error submitting a new comment:', error)
-    div.innerHTML += `<h3>Error submitting a new comment</h3><p>${error}</p>`
+
+    // div.innerHTML = ErrorDiv(error.message)
+    div.prepend(ErrorDiv(error.message))
+
   } finally {
     if (document.getElementById('loader')) {
       document.getElementById('loader').remove()

@@ -1,23 +1,23 @@
+import { compressImage } from '../../utils/functions/compressImage'
 import { BasicButton } from '../Buttons/BasicButton'
 import { FormField } from '../FormField/FormField'
 import './FormNewComment.css'
-export const FormNewComment = (form) => {
+export const FormNewComment = (form, relation) => {
   var labelText = 'New Comment'
   form.className = 'newComment-form'
   form.innerHTML = ''
   form.method = 'POST'
   form.enctype = 'multipart/form-data'
   form.innerHTML = `
-   <label for="story" >Tell us your comment, this will be publicly shared:</label>
+   <label for="story" >Tell us your comment, this will be publicly shared, this field is required</label>
 
-  <textarea id="description" name="description" rows="5" cols="33" >
- En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor.
-  </textarea>
+  <textarea id="description" name="description" rows="5" cols="33" title="This is a required field to find out what is needed." placeholder="Write your comment here" required ></textarea>
   
   ${FormField({
     labelText: 'relatedComments',
     titleText: 'Write related comments here separated by commas',
-    required: false
+    required: false,
+    textContent: relation ? relation : ''
   })}
   <label for="img">Upload Images, four maximum.</label>
   <input id="imageInput" type='file' name='img' multiple> 
@@ -34,16 +34,16 @@ export const FormNewComment = (form) => {
     <option selected value="💬">💬: Comment</option>
   </select>
   `
-  async function compressImage(blobImg, percent) {
-    let bitmap = await createImageBitmap(blobImg)
-    let canvas = document.createElement('canvas')
-    let ctx = canvas.getContext('2d')
-    canvas.width = bitmap.width
-    canvas.height = bitmap.height
-    ctx.drawImage(bitmap, 0, 0)
-    let dataUrl = canvas.toDataURL('image/jpeg', percent / 100)
-    return dataUrl
-  }
+  // async function compressImage(blobImg, percent) {
+  //   let bitmap = await createImageBitmap(blobImg)
+  //   let canvas = document.createElement('canvas')
+  //   let ctx = canvas.getContext('2d')
+  //   canvas.width = bitmap.width
+  //   canvas.height = bitmap.height
+  //   ctx.drawImage(bitmap, 0, 0)
+  //   let dataUrl = canvas.toDataURL('image/jpeg', percent / 100)
+  //   return dataUrl
+  // }
 
   imageInput.addEventListener('change', async (e) => {
     //source: https://stackoverflow.com/a/73744343/14037059

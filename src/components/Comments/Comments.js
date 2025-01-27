@@ -1,6 +1,13 @@
+import { CreateComment } from '../../pages/CreateComment/CreateComment'
+import { OneComment } from '../../pages/EditOneComment/EditOneComment'
+import { deleteCommentDEL } from '../../utils/functions/deleteCommentDEL'
+import { BasicBox } from '../BasicBox/BasicBox'
+import { singleComment } from '../singleComment/singleComment'
 import './Comments.css'
 
 export const commentsList = (arrayOfComments, title) => {
+  const personAdmin = JSON.parse(localStorage.getItem('person')).admin
+  console.log(`is the person admin?`, personAdmin)
   const section = document.createElement('section')
   section.classList.add('ParentCommentsCointainer')
   const detailAllComments = document.createElement('details')
@@ -13,43 +20,41 @@ export const commentsList = (arrayOfComments, title) => {
     for (const comment of arrayOfComments) {
       const listItem = document.createElement('li')
       listItem.classList.add('comment')
-      const divDescription = document.createElement('div')
-      divDescription.classList.add('comment-box')
-      divDescription.innerHTML = `  <p>${comment.description}</p>`
-      const divDateTime = document.createElement('div')
-      divDateTime.classList.add('comment-box')
-      const createDateTime = new Date(comment.createdAt)
-      const updateDateTime = new Date(comment.updatedAt)
-      divDateTime.innerHTML = `  <p class="type-comment">Created ${createDateTime.toUTCString()}</p> <p class="type-comment">updated ${updateDateTime.toUTCString()}</p>`
-      const divPerson = document.createElement('div')
-      divPerson.classList.add('comment-box')
-      divPerson.innerHTML = ` <div class="small-boxes"> <p class="type-comment">Type: ${
-        comment.typeComment
-      }</p> </div><div class="small-boxes"><p class="resolved">Complete: ${
-        comment.resolved ? '✅' : '❎'
-      } </div><div class="small-boxes"> <p class="who">Written by ${
-        comment.person.personName
-      }</p></div>`
+      listItem.append(singleComment(comment))
+
+      const divActions = document.createElement('div')
+      divActions.classList.add('actions')
+      divActions.classList.add('comment-box')
+
+      const divActionRelate = document.createElement('div')
+      divActionRelate.classList.add('small-boxes', 'actionRelate')
+      divActionRelate.innerHTML = '<p>🔗</p> <p>Create a related Comment</p>'
+      divActionRelate.addEventListener('click', () =>
+        CreateComment(comment._id)
+      )
+      divActions.appendChild(divActionRelate)
+
+      if (personAdmin) {
+        // admin option 1
+        const divActionEdit = document.createElement('div')
+        divActionEdit.classList.add('small-boxes', 'actionEdit', 'actionAdmin')
+        divActionEdit.innerHTML = '<p>✍️</p><p>Edit this comment</p>'
+        divActionEdit.addEventListener('click', () => {
+          OneComment(comment._id)
+        })
+        // admin option 2
+        const divActionDelete = document.createElement('div')
+        divActionDelete.classList.add('small-boxes', 'actionBin', 'actionAdmin')
+        divActionDelete.addEventListener('click', () => {
+          deleteCommentDEL(comment._id)
+        })
+
+        divActionDelete.innerHTML = '<p>🗑️</p><p>Bin this comment</p>'
+        divActions.appendChild(divActionEdit)
+        divActions.appendChild(divActionDelete)
+      }
+      listItem.appendChild(divActions)
       ul.append(listItem)
-      listItem.append(divDescription)
-      listItem.append(divDateTime)
-      listItem.append(divPerson)
-      if (comment.relatedComments.length !== 0) {
-        const divRelatedComments = document.createElement('div')
-        divRelatedComments.classList.add('comment-box')
-        divRelatedComments.innerHTML = `<p class="type-comment"> Related to: ${comment.relatedComments}</p>`
-        listItem.append(divRelatedComments)
-      }
-      if (comment.img.length == 0) {
-        //do nothing
-      } else {
-        const figure = document.createElement('figure')
-        for (const img of comment.img) {
-          figure.innerHTML += `<img src="${img}"/>`
-        }
-        listItem.append(figure)
-        ul.append(listItem)
-      }
     }
   } else {
     ul.innerHTML = `<li class ="comment"><p>No comments here</p></li>`

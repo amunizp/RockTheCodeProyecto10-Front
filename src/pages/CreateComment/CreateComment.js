@@ -2,7 +2,7 @@ import { FormNewComment } from '../../components/FormNewComment/FormNewComment'
 import { createPage } from '../../utils/functions/createPage'
 import { newCommentPOST } from '../../utils/functions/newCommentPOST'
 import './createComment.css'
-export const CreateComment = () => {
+export const CreateComment = (relation) => {
   console.log('Create a new comment form.')
   const div = createPage('CreateComment')
   div.innerHTML = `<h2>NewComment</h2>`
@@ -12,5 +12,5 @@ export const CreateComment = () => {
   form.addEventListener('submit', newCommentPOST)
   div.append(form)
 
-  FormNewComment(form)
+  FormNewComment(form, relation)
 }
