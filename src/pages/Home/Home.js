@@ -19,7 +19,7 @@ export const Home = async () => {
     if (arrayOfMyComments.error) {
       throw new Error(arrayOfMyComments.error)
     }
-    console.log('this is the array of my comments', arrayOfMyComments)
+    // console.log('this is the array of my comments', arrayOfMyComments)
     const sectionMine = commentsList(arrayOfMyComments, 'My Comments')
     div.append(sectionMine)
 

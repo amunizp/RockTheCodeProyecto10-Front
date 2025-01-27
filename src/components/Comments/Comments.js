@@ -1,4 +1,5 @@
 import { CreateComment } from '../../pages/CreateComment/CreateComment'
+import { BasicBox } from '../BasicBox/BasicBox'
 import './Comments.css'
 
 export const commentsList = (arrayOfComments, title) => {
@@ -14,36 +15,24 @@ export const commentsList = (arrayOfComments, title) => {
   ul.classList.add('commentsContainer')
   if (Array.isArray(arrayOfComments) || !arrayOfComments.length) {
     for (const comment of arrayOfComments) {
-      var theID = comment._id
-      console.log(theID)
       const listItem = document.createElement('li')
       listItem.classList.add('comment')
-      const divID = document.createElement('div')
-      divID.classList.add('divID')
-      divID.classList.add('comment-box')
-      divID.innerHTML = `<p><a>${comment._id}</a></p>`
-      const divDescription = document.createElement('div')
-      divDescription.classList.add('comment-box')
-      divDescription.innerHTML = `  <p>${comment.description}</p>`
-      const divDateTime = document.createElement('div')
-      divDateTime.classList.add('comment-box')
+
+      listItem.append(BasicBox(`<p>${comment._id}</p>`, 'divID'))
+      listItem.append(BasicBox(`<p>${comment.description}</p>`, 'description'))
       const createDateTime = new Date(comment.createdAt)
       const updateDateTime = new Date(comment.updatedAt)
-      divDateTime.innerHTML = `  <p class="type-comment">Created ${createDateTime.toUTCString()}</p> <p class="type-comment">updated ${updateDateTime.toUTCString()}</p>`
-      const divPerson = document.createElement('div')
-      divPerson.classList.add('comment-box')
-      divPerson.innerHTML = ` <div class="small-boxes"> <p class="type-comment">Type: ${
+      const dateTimeContent = `  <p class="type-comment">Created ${createDateTime.toUTCString()}</p> <p class="type-comment">updated ${updateDateTime.toUTCString()}</p>`
+      listItem.append(BasicBox(dateTimeContent, 'dateTime'))
+      const statusContent = ` <div class="small-boxes"> <p class="type-comment">Type: ${
         comment.typeComment
       }</p> </div><div class="small-boxes"><p class="resolved">Complete: ${
         comment.resolved ? '✅' : '❎'
       } </div><div class="small-boxes"> <p class="who">Written by ${
         comment.person.personName
       }</p></div>`
-      ul.append(listItem)
-      listItem.append(divID)
-      listItem.append(divDescription)
-      listItem.append(divDateTime)
-      listItem.append(divPerson)
+      listItem.append(BasicBox(statusContent, 'status'))
+
       if (
         comment.relatedComments.length > 0 &&
         comment.relatedComments[0] !== ''
@@ -73,39 +62,21 @@ export const commentsList = (arrayOfComments, title) => {
       divActionRelate.innerHTML = '<p>🔗</p> <p>Create a related Comment</p>'
       divActionRelate.addEventListener('click', () => CreateComment(theID))
       divActions.appendChild(divActionRelate)
-      // admin option 1
-      const divActionEdit = document.createElement('div')
-      divActionEdit.classList.add('small-boxes', 'actionEdit', 'actionAdmin')
-      divActionEdit.innerHTML = '<p>✍️</p><p>Edit this comment</p>'
-      // admin option 2
-      const divActionDelete = document.createElement('div')
-      divActionDelete.classList.add('small-boxes', 'actionBin', 'actionAdmin')
-      divActionDelete.innerHTML = '<p>🗑️</p><p>Bin this comment</p>'
 
       if (personAdmin) {
+        // admin option 1
+        const divActionEdit = document.createElement('div')
+        divActionEdit.classList.add('small-boxes', 'actionEdit', 'actionAdmin')
+        divActionEdit.innerHTML = '<p>✍️</p><p>Edit this comment</p>'
+        // admin option 2
+        const divActionDelete = document.createElement('div')
+        divActionDelete.classList.add('small-boxes', 'actionBin', 'actionAdmin')
+        divActionDelete.innerHTML = '<p>🗑️</p><p>Bin this comment</p>'
         divActions.appendChild(divActionEdit)
         divActions.appendChild(divActionDelete)
-      } // divActions.innerHTML = `<div class='small-boxes actionRelate'>🔗 Create a related Comment</div> ${
-      //   personAdmin
-      //     ? '<div class="small-boxes actionEdit">✍️ Edit this comment</div>'
-      //     : ''
-      // } ${
-      //   personAdmin
-      //     ? '<div class="small-boxes actionDelete">🗑️ Bin this comment</div>'
-      //     : ''
-      // } `
-      // // const actionRelate = document.getElementsByClassName('actionRelate')
-
-      // // actionRelate[0].addEventListener('click', CreateComment)
-      // const listOfRelateActions =
-      //   document.getElementsByClassName('actionRelate')
-
-      // for (let index = 0; index < listOfRelateActions.length; index++) {
-      //   listOfRelateActions[index].addEventListener('click', () =>
-      //     CreateComment(theID)
-      //   )
-      // }
+      }
       listItem.appendChild(divActions)
+      ul.append(listItem)
     }
   } else {
     ul.innerHTML = `<li class ="comment"><p>No comments here</p></li>`
