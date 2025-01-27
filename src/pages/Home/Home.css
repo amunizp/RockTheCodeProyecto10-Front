@@ -9,6 +9,8 @@
   color: var(--parkleys-color-text);
 }
 
+
 #home li.comment img:hover {
+
   transform: scale(5, 5);
 }

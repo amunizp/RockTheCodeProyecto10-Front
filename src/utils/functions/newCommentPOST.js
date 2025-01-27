@@ -54,8 +54,10 @@ export const newCommentPOST = async (e) => {
     }
   } catch (error) {
     console.log('Error submitting a new comment:', error)
+
     // div.innerHTML = ErrorDiv(error.message)
     div.prepend(ErrorDiv(error.message))
+
   } finally {
     if (document.getElementById('loader')) {
       document.getElementById('loader').remove()
