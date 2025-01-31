@@ -1,4 +1,5 @@
 import { compressImage } from '../../utils/functions/compressImage'
+import { newCommentPOST } from '../../utils/functions/newCommentPOST'
 import { BasicButton } from '../Buttons/BasicButton'
 import { FormField } from '../FormField/FormField'
 import './FormNewComment.css'
@@ -34,22 +35,14 @@ export const FormNewComment = (form, relation) => {
     <option selected value="💬">💬: Comment</option>
   </select>
   `
-  // async function compressImage(blobImg, percent) {
-  //   let bitmap = await createImageBitmap(blobImg)
-  //   let canvas = document.createElement('canvas')
-  //   let ctx = canvas.getContext('2d')
-  //   canvas.width = bitmap.width
-  //   canvas.height = bitmap.height
-  //   ctx.drawImage(bitmap, 0, 0)
-  //   let dataUrl = canvas.toDataURL('image/jpeg', percent / 100)
-  //   return dataUrl
-  // }
 
   imageInput.addEventListener('change', async (e) => {
     //source: https://stackoverflow.com/a/73744343/14037059
     console.log('File Selected: ', e.target.files)
+    const compressedImages = []
+    e.target.files
     for (const img of e.target.files) {
-      // let img = e.target.files[0]
+      //  let img = e.target.files[0]
 
       console.log('File Name: ', img.name)
       console.log('Original Size: ', img.size.toLocaleString())
@@ -57,8 +50,11 @@ export const FormNewComment = (form, relation) => {
       let imgCompressed = await compressImage(img, 75) // set to 75%
       let compSize = atob(imgCompressed.split(',')[1]).length
       console.log('Compressed Size: ', compSize.toLocaleString())
-      //console.log(imgCompressed)
+      console.log(imgCompressed)
+      compressedImages.push(imgCompressed)
     }
+    console.log('list of compressed images', compressedImages)
+    console.log('list of files loaded', e.target.files)
   })
   form.append(
     BasicButton({
@@ -68,4 +64,5 @@ export const FormNewComment = (form, relation) => {
       }
     })
   )
+  form.addEventListener('submit', newCommentPOST)
 }

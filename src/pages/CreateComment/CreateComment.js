@@ -9,7 +9,7 @@ export const CreateComment = (relation) => {
   const form = document.createElement('form')
   // const newCommentPUT = console.log('Call newCommentPUT')
   form.setAttribute('enctype', 'multipart/form-data')
-  form.addEventListener('submit', newCommentPOST)
+  // form.addEventListener('submit', newCommentPOST)
   div.append(form)
 
   FormNewComment(form, relation)
