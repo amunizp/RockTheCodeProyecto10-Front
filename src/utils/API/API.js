@@ -1,7 +1,7 @@
 // const url = 'http://localhost:3000/api/v1/'
 // const devUrl = 'http://localhost:3000/api/v1/'
 
-const deployed = false
+const deployed = true
 const url = deployed
   ? 'https://rock-the-code-proyecto10-back.vercel.app/api/v1/'
   : 'http://localhost:3000/api/v1/'
