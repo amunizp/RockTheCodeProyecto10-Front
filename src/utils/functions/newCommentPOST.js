@@ -17,8 +17,8 @@ export const newCommentPOST = async (e, images) => {
   // console.log('form data without images', formData)
   for (let index = 0; index < images.length; index++) {
     const value = images[index]
-    const name = imageNames[index]
-    formData.append('img', value, name.name + 'Compressed')
+    const fileName = imageNames[index]
+    formData.append('img', value, 'Compressed' + fileName.name)
   }
   console.log('The form data in full modified', formData)
 
