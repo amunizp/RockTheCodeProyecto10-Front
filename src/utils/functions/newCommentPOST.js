@@ -5,12 +5,23 @@ import { API } from '../API/API'
 
 // const delay = (ms) => new Promise((res) => setTimeout(res, ms))
 
-export const newCommentPOST = async (e) => {
+export const newCommentPOST = async (e, images) => {
   e.preventDefault()
 
   const formData = new FormData(e.target)
-  console.log('The form data in full', formData)
-  console.log('The form data relatedComments', formData.get('relatedComments'))
+  // console.log('The form data in full', formData)
+  // console.log('Images data', images)
+  const imageNames = formData.getAll('img')
+  // console.log('Nameof images', imageNames)
+  formData.delete('img')
+  // console.log('form data without images', formData)
+  for (let index = 0; index < images.length; index++) {
+    const value = images[index]
+    const name = imageNames[index]
+    formData.append('img', value, name.name + 'Compressed')
+  }
+  console.log('The form data in full modified', formData)
+
   for (const value of formData.values()) {
     console.log('check if any is empty string', value)
     // if (value === '') {
@@ -57,7 +68,6 @@ export const newCommentPOST = async (e) => {
 
     // div.innerHTML = ErrorDiv(error.message)
     div.prepend(ErrorDiv(error.message))
-
   } finally {
     if (document.getElementById('loader')) {
       document.getElementById('loader').remove()

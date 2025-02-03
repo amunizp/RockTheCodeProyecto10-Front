@@ -2,6 +2,7 @@ import { compressImage } from '../../utils/functions/compressImage'
 import { newCommentPOST } from '../../utils/functions/newCommentPOST'
 import { BasicButton } from '../Buttons/BasicButton'
 import { FormField } from '../FormField/FormField'
+import { Loading } from '../Loading/Loading'
 import './FormNewComment.css'
 export const FormNewComment = (form, relation) => {
   var labelText = 'New Comment'
@@ -20,8 +21,8 @@ export const FormNewComment = (form, relation) => {
     required: false,
     textContent: relation ? relation : ''
   })}
-  <label for="img">Upload Images, four maximum.</label>
-  <input id="imageInput" type='file' name='img' multiple> 
+  <label id="imgLabel" for="img">Upload Images, four maximum, jpg or Jpeg (normal camera photo)  combined size must be less than 4.5MB</label>
+  <input id="imageInput" type='file' name='img' accept="image/jpeg, image/jpg" multiple> 
   <fieldset>
   <label for="resolved">Tick if resolved.</label>
   <input type="checkbox" data-toggle="switch" name="resolved" id="resolved" value="true" />
@@ -36,25 +37,45 @@ export const FormNewComment = (form, relation) => {
   </select>
   `
 
+  const compressedImages = []
+  // const imageInput = document.getElementById('imageInput')
+  imageInput.addEventListener('click', async (e) => {
+    console.log('I clicked to search for files!')
+  })
   imageInput.addEventListener('change', async (e) => {
+    const div = document.querySelector('.newComment-form')
+    Loading(div)
     //source: https://stackoverflow.com/a/73744343/14037059
     console.log('File Selected: ', e.target.files)
-    const compressedImages = []
-    e.target.files
+    var originalSize = 0
+    var newSize = 0
     for (const img of e.target.files) {
       //  let img = e.target.files[0]
 
       console.log('File Name: ', img.name)
       console.log('Original Size: ', img.size.toLocaleString())
-
+      originalSize += Number(img.size)
       let imgCompressed = await compressImage(img, 75) // set to 75%
-      let compSize = atob(imgCompressed.split(',')[1]).length
-      console.log('Compressed Size: ', compSize.toLocaleString())
-      console.log(imgCompressed)
+      console.log('img compressed', imgCompressed.size)
+      // let compSize = atob(imgCompressed.size.split(',')[1]).length
+      // console.log('Compressed Size: ', compSize.toLocaleString())
+      newSize += Number(imgCompressed.size)
       compressedImages.push(imgCompressed)
     }
-    console.log('list of compressed images', compressedImages)
-    console.log('list of files loaded', e.target.files)
+    console.log(
+      `The original size was ${originalSize.toLocaleString()}, the new size is ${newSize.toLocaleString()}`
+    )
+    // const imgLabel = document.getElementById('imgLabel')
+    imgLabel.innerHTML = `Upload Images, four maximum, jpg or Jpeg (normal camera photo) combined size must be less than 4.5MB, you gave me ${(
+      originalSize / 1000000
+    ).toFixed(1)} MB which I compressed to ${(newSize / 1000000).toFixed(1)}MB`
+
+    // console.log('list of compressed images', compressedImages)
+    // console.log('list of files loaded', e.target.files)
+    // e.target.files = compressedImages
+    if (document.getElementById('loader')) {
+      document.getElementById('loader').remove()
+    }
   })
   form.append(
     BasicButton({
@@ -64,5 +85,8 @@ export const FormNewComment = (form, relation) => {
       }
     })
   )
-  form.addEventListener('submit', newCommentPOST)
+
+  form.addEventListener('submit', async (e) =>
+    newCommentPOST(e, compressedImages)
+  )
 }
