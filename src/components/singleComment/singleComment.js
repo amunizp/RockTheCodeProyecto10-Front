@@ -22,12 +22,12 @@ export const singleComment = (comment) => {
     comment.person
   }</p></div>`
   singleCommentSection.append(BasicBox(statusContent, 'status'))
-  console.log(
-    'the related comments are',
-    comment.relatedComments,
-    'fromthe following id',
-    comment._id
-  )
+  // console.log(
+  //   'the related comments are',
+  //   comment.relatedComments,
+  //   'fromthe following id',
+  //   comment._id
+  // )
   if (comment.relatedComments.length > 0 && comment.relatedComments[0] !== '') {
     const divRelatedComments = document.createElement('div')
     divRelatedComments.classList.add('comment-box')
