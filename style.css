@@ -46,6 +46,13 @@
   --parkleys-phone-width: 350px;
 
   /*Branding colors*/
+
+    /* Adjust these to match your exact Parkleys Estate colors */
+    --parkleys-tile-color: #b06c6c;
+    --parkleys-footer-color: #295307;
+    --parkleys-text-color: #5a4a42;
+    --parkleys-window-frame-color: white;
+    --parkleys-pane-color: #f9f9f9;
   --parkleys-color: #b06c6c; /* the heading */
   --parkleys-color-1: #4c2321;
   --parkleys-color-2: #bf8988;

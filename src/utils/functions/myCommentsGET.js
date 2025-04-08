@@ -20,6 +20,9 @@ export const myCommentsGET = async () => {
     return data
   } catch (error) {
     console.error('Error fetching comments:', error)
-    return { error: error.message }
+    return {
+      error:
+        'Error fetching comments: is the back end connected? ' + error.message
+    }
   }
 }
